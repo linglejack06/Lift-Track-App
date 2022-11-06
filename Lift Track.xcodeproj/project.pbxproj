@@ -8,12 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		5CD29548291496B0002242E3 /* Lift_TrackApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD29547291496B0002242E3 /* Lift_TrackApp.swift */; };
-		5CD2954A291496B0002242E3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD29549291496B0002242E3 /* ContentView.swift */; };
+		5CD2954A291496B0002242E3 /* RoutineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD29549291496B0002242E3 /* RoutineView.swift */; };
 		5CD2954C291496B2002242E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CD2954B291496B2002242E3 /* Assets.xcassets */; };
 		5CD2954F291496B2002242E3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CD2954E291496B2002242E3 /* Preview Assets.xcassets */; };
 		5CD29559291496B2002242E3 /* Lift_TrackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD29558291496B2002242E3 /* Lift_TrackTests.swift */; };
 		5CD29563291496B2002242E3 /* Lift_TrackUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD29562291496B2002242E3 /* Lift_TrackUITests.swift */; };
 		5CD29565291496B2002242E3 /* Lift_TrackUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD29564291496B2002242E3 /* Lift_TrackUITestsLaunchTests.swift */; };
+		5CD295842915F0E0002242E3 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5CD295832915F0E0002242E3 /* RealmSwift */; };
+		5CD295882915F28C002242E3 /* Routine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD295872915F28C002242E3 /* Routine.swift */; };
+		5CD2958A2915F64C002242E3 /* SubRoutine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD295892915F64C002242E3 /* SubRoutine.swift */; };
+		5CD2958C2917072B002242E3 /* SetAndWeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD2958B2917072B002242E3 /* SetAndWeight.swift */; };
+		5CD2958E2917092C002242E3 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD2958D2917092C002242E3 /* History.swift */; };
+		5CD2959029183465002242E3 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD2958F29183465002242E3 /* CardView.swift */; };
+		5CD2959229183625002242E3 /* SubRoutineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD2959129183625002242E3 /* SubRoutineView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +43,7 @@
 /* Begin PBXFileReference section */
 		5CD29544291496B0002242E3 /* Lift Track.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lift Track.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CD29547291496B0002242E3 /* Lift_TrackApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lift_TrackApp.swift; sourceTree = "<group>"; };
-		5CD29549291496B0002242E3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		5CD29549291496B0002242E3 /* RoutineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineView.swift; sourceTree = "<group>"; };
 		5CD2954B291496B2002242E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5CD2954E291496B2002242E3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5CD29554291496B2002242E3 /* Lift TrackTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Lift TrackTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +51,13 @@
 		5CD2955E291496B2002242E3 /* Lift TrackUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Lift TrackUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CD29562291496B2002242E3 /* Lift_TrackUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lift_TrackUITests.swift; sourceTree = "<group>"; };
 		5CD29564291496B2002242E3 /* Lift_TrackUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lift_TrackUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		5CD2957E2914A19E002242E3 /* Hierarchy.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Hierarchy.md; sourceTree = "<group>"; };
+		5CD295872915F28C002242E3 /* Routine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routine.swift; sourceTree = "<group>"; };
+		5CD295892915F64C002242E3 /* SubRoutine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubRoutine.swift; sourceTree = "<group>"; };
+		5CD2958B2917072B002242E3 /* SetAndWeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAndWeight.swift; sourceTree = "<group>"; };
+		5CD2958D2917092C002242E3 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
+		5CD2958F29183465002242E3 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		5CD2959129183625002242E3 /* SubRoutineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubRoutineView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CD295842915F0E0002242E3 /* RealmSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,7 +110,10 @@
 			isa = PBXGroup;
 			children = (
 				5CD29547291496B0002242E3 /* Lift_TrackApp.swift */,
-				5CD29549291496B0002242E3 /* ContentView.swift */,
+				5CD29549291496B0002242E3 /* RoutineView.swift */,
+				5CD2959129183625002242E3 /* SubRoutineView.swift */,
+				5CD2958F29183465002242E3 /* CardView.swift */,
+				5CD2957229149C7C002242E3 /* Data Models */,
 				5CD2954B291496B2002242E3 /* Assets.xcassets */,
 				5CD2954D291496B2002242E3 /* Preview Content */,
 			);
@@ -127,6 +145,18 @@
 			path = "Lift TrackUITests";
 			sourceTree = "<group>";
 		};
+		5CD2957229149C7C002242E3 /* Data Models */ = {
+			isa = PBXGroup;
+			children = (
+				5CD295872915F28C002242E3 /* Routine.swift */,
+				5CD295892915F64C002242E3 /* SubRoutine.swift */,
+				5CD2958B2917072B002242E3 /* SetAndWeight.swift */,
+				5CD2958D2917092C002242E3 /* History.swift */,
+				5CD2957E2914A19E002242E3 /* Hierarchy.md */,
+			);
+			path = "Data Models";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,6 +173,9 @@
 			dependencies = (
 			);
 			name = "Lift Track";
+			packageProductDependencies = (
+				5CD295832915F0E0002242E3 /* RealmSwift */,
+			);
 			productName = "Lift Track";
 			productReference = 5CD29544291496B0002242E3 /* Lift Track.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +248,9 @@
 				Base,
 			);
 			mainGroup = 5CD2953B291496B0002242E3;
+			packageReferences = (
+				5CD295822915F0E0002242E3 /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+			);
 			productRefGroup = 5CD29545291496B0002242E3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -257,8 +293,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5CD2954A291496B0002242E3 /* ContentView.swift in Sources */,
+				5CD2959029183465002242E3 /* CardView.swift in Sources */,
+				5CD2958E2917092C002242E3 /* History.swift in Sources */,
+				5CD2959229183625002242E3 /* SubRoutineView.swift in Sources */,
+				5CD2954A291496B0002242E3 /* RoutineView.swift in Sources */,
+				5CD2958C2917072B002242E3 /* SetAndWeight.swift in Sources */,
 				5CD29548291496B0002242E3 /* Lift_TrackApp.swift in Sources */,
+				5CD295882915F28C002242E3 /* Routine.swift in Sources */,
+				5CD2958A2915F64C002242E3 /* SubRoutine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -577,6 +619,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5CD295822915F0E0002242E3 /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-cocoa";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.7.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5CD295832915F0E0002242E3 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5CD295822915F0E0002242E3 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5CD2953C291496B0002242E3 /* Project object */;
 }
