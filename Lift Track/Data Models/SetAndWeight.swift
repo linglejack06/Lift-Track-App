@@ -8,16 +8,21 @@
 import RealmSwift
 
 class SetAndWeight: EmbeddedObject, ObjectKeyIdentifiable {
-    @Persisted var setNumber: Int
-    @Persisted var weight: Int
-    @Persisted var reps: Int
-    @Persisted var weightUnit: String
+    @Persisted var setNumber: Int?
+    @Persisted var weight: Int?
+    @Persisted var reps: Int?
+    // make into enum possibly to have drop down menu selection
+    @Persisted var weightUnit: String?
+    @Persisted var notes: String?
     
-    convenience init(setNumber: Int, weight: Int, reps: Int, weightUnit: String) {
+    convenience init(setNumber: Int?, weight: Int?, reps: Int?, weightUnit: String?, notes: String?) {
         self.init()
         self.setNumber = setNumber
         self.weight = weight
         self.reps = reps
         self.weightUnit = weightUnit
+        self.notes = notes
     }
 }
+
+

@@ -11,7 +11,7 @@ import SwiftUI
 struct Lift_TrackApp: App {
     var body: some Scene {
         WindowGroup {
-            RoutineView(routines: Routine.sampleRoutine)
+            RoutineView()
         }
     }
 }

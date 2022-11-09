@@ -29,11 +29,31 @@ class Routine: Object, ObjectKeyIdentifiable {
         }
     }
 }
-// creates Routine.sampleRoutine to display in app preview
+
 extension Routine {
-    static let sampleRoutine: [Routine] = [
-        Routine(title: "Chest and Triceps", totalSets: 40, workoutList: [SubRoutine(workoutName: "Chest Press", setAndWeightList: [SetAndWeight(setNumber: 1, weight: 45, reps: 10, weightUnit: "lbs"), SetAndWeight(setNumber: 2, weight: 135, reps: 10, weightUnit: "lbs")]), SubRoutine(workoutName: "Chest Fly", setAndWeightList: [SetAndWeight(setNumber: 1, weight: 10, reps: 10, weightUnit: "lbs"), SetAndWeight(setNumber: 2, weight: 20, reps: 10, weightUnit: "lbs")])]),
-        Routine(title: "Back and Biceps", totalSets: 4, workoutList: [SubRoutine(workoutName: "DB back row", setAndWeightList: [SetAndWeight(setNumber: 1, weight: 40, reps: 10, weightUnit: "lbs per side"), SetAndWeight(setNumber: 2, weight: 50, reps: 10, weightUnit: "lbs per side")]), SubRoutine(workoutName: "Straight bar curl", setAndWeightList: [SetAndWeight(setNumber: 1, weight: 45, reps: 10, weightUnit: "lbs"), SetAndWeight(setNumber: 2, weight: 65, reps: 10, weightUnit: "lbs")])]),
-        Routine(title: "Legs", totalSets: 12, workoutList: [SubRoutine(workoutName: "BB squat", setAndWeightList: [SetAndWeight(setNumber: 1, weight: 45, reps: 10, weightUnit: "lbs"), SetAndWeight(setNumber: 2, weight: 135, reps: 10, weightUnit: "lbs")]), SubRoutine(workoutName: "Deadlift", setAndWeightList: [SetAndWeight(setNumber: 1, weight: 135, reps: 10, weightUnit: "lbs"), SetAndWeight(setNumber: 2, weight: 225, reps: 10, weightUnit: "lbs")])])
-    ]
+    struct Data {
+        var title: String = ""
+        var totalSets: Int = 0
+        var workoutList: [SubRoutine] = []
+        var historyList: [History] = []
+    }
+    
+    var data: Data {
+        return Data(title: title, totalSets: totalSets, workoutList: workouts, historyList: history)
+    }
+    
+    func update(from data: Data) {
+        title = data.title
+        totalSets = data.totalSets
+        for workout in workouts {
+            if !workouts.contains(workout) {
+                self.workoutList.append(workout)
+            }
+        }
+        for entry in history {
+            if !history.contains(entry) {
+                self.historyList.append(entry)
+            }
+        }
+    }
 }

@@ -8,13 +8,16 @@
 import SwiftUI
 
 struct SubRoutineView: View {
+    var routine: Routine
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List {
+            Text("List Item")
+        }
     }
 }
 
 struct SubRoutineView_Previews: PreviewProvider {
     static var previews: some View {
-        SubRoutineView()
+        SubRoutineView(routine: Routine.sampleRoutine[0])
     }
 }

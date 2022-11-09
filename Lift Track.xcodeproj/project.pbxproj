@@ -21,6 +21,9 @@
 		5CD2958E2917092C002242E3 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD2958D2917092C002242E3 /* History.swift */; };
 		5CD2959029183465002242E3 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD2958F29183465002242E3 /* CardView.swift */; };
 		5CD2959229183625002242E3 /* SubRoutineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD2959129183625002242E3 /* SubRoutineView.swift */; };
+		5CD295942919FA00002242E3 /* EditWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD295932919FA00002242E3 /* EditWorkoutView.swift */; };
+		5CD295962919FB27002242E3 /* WorkoutListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD295952919FB27002242E3 /* WorkoutListItemView.swift */; };
+		5CD295A0291B4776002242E3 /* AddRoutineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD2959F291B4776002242E3 /* AddRoutineView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,7 +48,7 @@
 		5CD29547291496B0002242E3 /* Lift_TrackApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lift_TrackApp.swift; sourceTree = "<group>"; };
 		5CD29549291496B0002242E3 /* RoutineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineView.swift; sourceTree = "<group>"; };
 		5CD2954B291496B2002242E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		5CD2954E291496B2002242E3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		5CD2954E291496B2002242E3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = "Preview Assets.xcassets"; path = "Preview Content/Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5CD29554291496B2002242E3 /* Lift TrackTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Lift TrackTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CD29558291496B2002242E3 /* Lift_TrackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lift_TrackTests.swift; sourceTree = "<group>"; };
 		5CD2955E291496B2002242E3 /* Lift TrackUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Lift TrackUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -58,6 +61,9 @@
 		5CD2958D2917092C002242E3 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		5CD2958F29183465002242E3 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		5CD2959129183625002242E3 /* SubRoutineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubRoutineView.swift; sourceTree = "<group>"; };
+		5CD295932919FA00002242E3 /* EditWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditWorkoutView.swift; sourceTree = "<group>"; };
+		5CD295952919FB27002242E3 /* WorkoutListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutListItemView.swift; sourceTree = "<group>"; };
+		5CD2959F291B4776002242E3 /* AddRoutineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRoutineView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,9 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				5CD29547291496B0002242E3 /* Lift_TrackApp.swift */,
-				5CD29549291496B0002242E3 /* RoutineView.swift */,
-				5CD2959129183625002242E3 /* SubRoutineView.swift */,
-				5CD2958F29183465002242E3 /* CardView.swift */,
+				5CD2959C291B40E2002242E3 /* Views */,
 				5CD2957229149C7C002242E3 /* Data Models */,
 				5CD2954B291496B2002242E3 /* Assets.xcassets */,
 				5CD2954D291496B2002242E3 /* Preview Content */,
@@ -125,7 +129,7 @@
 			children = (
 				5CD2954E291496B2002242E3 /* Preview Assets.xcassets */,
 			);
-			path = "Preview Content";
+			name = "Preview Content";
 			sourceTree = "<group>";
 		};
 		5CD29557291496B2002242E3 /* Lift TrackTests */ = {
@@ -155,6 +159,19 @@
 				5CD2957E2914A19E002242E3 /* Hierarchy.md */,
 			);
 			path = "Data Models";
+			sourceTree = "<group>";
+		};
+		5CD2959C291B40E2002242E3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5CD295932919FA00002242E3 /* EditWorkoutView.swift */,
+				5CD29549291496B0002242E3 /* RoutineView.swift */,
+				5CD2959F291B4776002242E3 /* AddRoutineView.swift */,
+				5CD2959129183625002242E3 /* SubRoutineView.swift */,
+				5CD2958F29183465002242E3 /* CardView.swift */,
+				5CD295952919FB27002242E3 /* WorkoutListItemView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,10 +312,13 @@
 			files = (
 				5CD2959029183465002242E3 /* CardView.swift in Sources */,
 				5CD2958E2917092C002242E3 /* History.swift in Sources */,
+				5CD295942919FA00002242E3 /* EditWorkoutView.swift in Sources */,
 				5CD2959229183625002242E3 /* SubRoutineView.swift in Sources */,
 				5CD2954A291496B0002242E3 /* RoutineView.swift in Sources */,
+				5CD295A0291B4776002242E3 /* AddRoutineView.swift in Sources */,
 				5CD2958C2917072B002242E3 /* SetAndWeight.swift in Sources */,
 				5CD29548291496B0002242E3 /* Lift_TrackApp.swift in Sources */,
+				5CD295962919FB27002242E3 /* WorkoutListItemView.swift in Sources */,
 				5CD295882915F28C002242E3 /* Routine.swift in Sources */,
 				5CD2958A2915F64C002242E3 /* SubRoutine.swift in Sources */,
 			);
@@ -458,7 +478,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Lift Track/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Lift Track/Preview Content/Preview Assets.xcassets\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -486,7 +506,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Lift Track/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Lift Track/Preview Content/Preview Assets.xcassets\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

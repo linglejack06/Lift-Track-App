@@ -15,13 +15,12 @@ struct CardView: View {
                 Text(routine.title)
                     .font(.headline)
                     .accessibilityAddTraits(.isHeader)
-                Spacer()
+                    .foregroundColor(.primary)
                 Text("Sets: \(routine.totalSets)")
+                    .foregroundColor(.secondary)
             }
-            
         }
         .padding()
-        
     }
 }
 
