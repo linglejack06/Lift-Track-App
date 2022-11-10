@@ -31,7 +31,26 @@ struct RoutineView: View {
         })
         .sheet(isPresented: $isPresentingNewRoutine) {
             NavigationView {
-                AddRoutineView ()
+                AddRoutineView (data: $newRoutine)
+                    .toolbar {
+                        ToolbarItem(placement: .cancellationAction) {
+                            Button( action: {
+                                isPresentingNewRoutine = false
+                                newRoutine = Routine.Data()
+                            }) {
+                                Text("Dismiss")
+                            }
+                        }
+                        ToolbarItem(placement:.confirmationAction) {
+                            Button(action: {
+                                let routine = Routine(title: newRoutine.title, totalSets: newRoutine.totalSets, totalWorkouts: newRoutine.totalWorkouts, workoutList: newRoutine.workoutList, historyList: newRoutine.historyList)
+                                $routines.append(routine)
+                                isPresentingNewRoutine = false
+                            }) {
+                                Text("Add")
+                            }
+                        }
+                    }
             }
         }
     }

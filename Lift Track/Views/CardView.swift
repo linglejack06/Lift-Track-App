@@ -26,6 +26,6 @@ struct CardView: View {
 
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
-        CardView(routine: Routine.sampleRoutine[0])
+        CardView(routine: Routine(title: "Chest and Back", totalSets: 4, totalWorkouts: 1))
     }
 }

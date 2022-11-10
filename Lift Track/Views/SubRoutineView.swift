@@ -18,6 +18,6 @@ struct SubRoutineView: View {
 
 struct SubRoutineView_Previews: PreviewProvider {
     static var previews: some View {
-        SubRoutineView(routine: Routine.sampleRoutine[0])
+        SubRoutineView(routine: Routine(title: "Chest and Back", totalSets: 4, totalWorkouts: 1))
     }
 }

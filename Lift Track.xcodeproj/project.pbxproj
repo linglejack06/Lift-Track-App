@@ -24,6 +24,7 @@
 		5CD295942919FA00002242E3 /* EditWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD295932919FA00002242E3 /* EditWorkoutView.swift */; };
 		5CD295962919FB27002242E3 /* WorkoutListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD295952919FB27002242E3 /* WorkoutListItemView.swift */; };
 		5CD295A0291B4776002242E3 /* AddRoutineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD2959F291B4776002242E3 /* AddRoutineView.swift */; };
+		5CD295A2291C8585002242E3 /* weightUnitOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD295A1291C8585002242E3 /* weightUnitOptions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		5CD295932919FA00002242E3 /* EditWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditWorkoutView.swift; sourceTree = "<group>"; };
 		5CD295952919FB27002242E3 /* WorkoutListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutListItemView.swift; sourceTree = "<group>"; };
 		5CD2959F291B4776002242E3 /* AddRoutineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRoutineView.swift; sourceTree = "<group>"; };
+		5CD295A1291C8585002242E3 /* weightUnitOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weightUnitOptions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +157,7 @@
 				5CD295872915F28C002242E3 /* Routine.swift */,
 				5CD295892915F64C002242E3 /* SubRoutine.swift */,
 				5CD2958B2917072B002242E3 /* SetAndWeight.swift */,
+				5CD295A1291C8585002242E3 /* weightUnitOptions.swift */,
 				5CD2958D2917092C002242E3 /* History.swift */,
 				5CD2957E2914A19E002242E3 /* Hierarchy.md */,
 			);
@@ -316,6 +319,7 @@
 				5CD2959229183625002242E3 /* SubRoutineView.swift in Sources */,
 				5CD2954A291496B0002242E3 /* RoutineView.swift in Sources */,
 				5CD295A0291B4776002242E3 /* AddRoutineView.swift in Sources */,
+				5CD295A2291C8585002242E3 /* weightUnitOptions.swift in Sources */,
 				5CD2958C2917072B002242E3 /* SetAndWeight.swift in Sources */,
 				5CD29548291496B0002242E3 /* Lift_TrackApp.swift in Sources */,
 				5CD295962919FB27002242E3 /* WorkoutListItemView.swift in Sources */,
