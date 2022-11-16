@@ -14,7 +14,7 @@ struct RoutineView: View {
     @ObservedResults(Routine.self) var routines
     var body: some View {
         NavigationView {
-            List {
+            ScrollView {
                 if let routines = routines {
                     ForEach(routines) { routine in
                         NavigationLink(destination: SubRoutineView(routine: routine)) {
@@ -23,34 +23,34 @@ struct RoutineView: View {
                     }
                 }
             }
-        }
-        .navigationBarItems(trailing: Button( action: {
-            isPresentingNewRoutine = true
-        }) {
-            Image(systemName: "Plus")
-        })
-        .sheet(isPresented: $isPresentingNewRoutine) {
-            NavigationView {
-                AddRoutineView (data: $newRoutine)
-                    .toolbar {
-                        ToolbarItem(placement: .cancellationAction) {
-                            Button( action: {
-                                isPresentingNewRoutine = false
-                                newRoutine = Routine.Data()
-                            }) {
-                                Text("Dismiss")
+            .navigationBarItems(trailing: Button( action: {
+                isPresentingNewRoutine = true
+            }) {
+                Image(systemName: "Plus")
+            })
+            .sheet(isPresented: $isPresentingNewRoutine) {
+                NavigationView {
+                    AddRoutineView (data: $newRoutine)
+                        .toolbar {
+                            ToolbarItem(placement: .cancellationAction) {
+                                Button( action: {
+                                    isPresentingNewRoutine = false
+                                    newRoutine = Routine.Data()
+                                }) {
+                                    Text("Dismiss")
+                                }
+                            }
+                            ToolbarItem(placement:.confirmationAction) {
+                                Button(action: {
+                                    let routine = Routine(title: newRoutine.title, totalSets: newRoutine.totalSets, totalWorkouts: newRoutine.totalWorkouts, workoutList: newRoutine.workoutList, historyList: [])
+                                    $routines.append(routine)
+                                    isPresentingNewRoutine = false
+                                }) {
+                                    Text("Add")
+                                }
                             }
                         }
-                        ToolbarItem(placement:.confirmationAction) {
-                            Button(action: {
-                                let routine = Routine(title: newRoutine.title, totalSets: newRoutine.totalSets, totalWorkouts: newRoutine.totalWorkouts, workoutList: newRoutine.workoutList, historyList: newRoutine.historyList)
-                                $routines.append(routine)
-                                isPresentingNewRoutine = false
-                            }) {
-                                Text("Add")
-                            }
-                        }
-                    }
+                }
             }
         }
     }

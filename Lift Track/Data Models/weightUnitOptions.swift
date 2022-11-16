@@ -6,8 +6,10 @@
 //
 
 import Foundation
+import RealmSwift
+import Realm
 
-enum WeightUnitOptions: String, CaseIterable, Identifiable, Codable  {
+enum WeightUnitOptions: String, PersistableEnum, CaseIterable  {
     case pounds = "lbs"
     case poundsPerSide = "lbs per side"
     case kilograms = "kg"

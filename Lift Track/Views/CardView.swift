@@ -6,9 +6,10 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct CardView: View {
-    let routine: Routine
+    @ObservedRealmObject var routine: Routine
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
