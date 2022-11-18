@@ -8,7 +8,6 @@
 import RealmSwift
 
 class SubRoutine: EmbeddedObject, ObjectKeyIdentifiable {
-    @Persisted(primaryKey: true) var _id: ObjectId
     @Persisted var workoutName: String = ""
     @Persisted var setAndWeightList: RealmSwift.List<SetAndWeight>
     @Persisted var sets: Int = 0

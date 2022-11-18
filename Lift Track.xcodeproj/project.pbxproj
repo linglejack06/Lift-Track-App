@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5C5FEFD82923C12E0080BF47 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5FEFD72923C12E0080BF47 /* User.swift */; };
+		5C5FEFDA292722610080BF47 /* NewWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5FEFD9292722610080BF47 /* NewWorkoutView.swift */; };
 		5CD29548291496B0002242E3 /* Lift_TrackApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD29547291496B0002242E3 /* Lift_TrackApp.swift */; };
 		5CD2954A291496B0002242E3 /* RoutineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD29549291496B0002242E3 /* RoutineView.swift */; };
 		5CD2954C291496B2002242E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CD2954B291496B2002242E3 /* Assets.xcassets */; };
@@ -47,6 +48,7 @@
 
 /* Begin PBXFileReference section */
 		5C5FEFD72923C12E0080BF47 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		5C5FEFD9292722610080BF47 /* NewWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWorkoutView.swift; sourceTree = "<group>"; };
 		5CD29544291496B0002242E3 /* Lift Track.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lift Track.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CD29547291496B0002242E3 /* Lift_TrackApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lift_TrackApp.swift; sourceTree = "<group>"; };
 		5CD29549291496B0002242E3 /* RoutineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineView.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 			children = (
 				5CD295932919FA00002242E3 /* EditWorkoutView.swift */,
 				5CD29549291496B0002242E3 /* RoutineView.swift */,
+				5C5FEFD9292722610080BF47 /* NewWorkoutView.swift */,
 				5CD2959F291B4776002242E3 /* AddRoutineView.swift */,
 				5CD2959129183625002242E3 /* SubRoutineView.swift */,
 				5CD2958F29183465002242E3 /* CardView.swift */,
@@ -321,6 +324,7 @@
 				5CD2958E2917092C002242E3 /* History.swift in Sources */,
 				5CD295942919FA00002242E3 /* EditWorkoutView.swift in Sources */,
 				5CD2959229183625002242E3 /* SubRoutineView.swift in Sources */,
+				5C5FEFDA292722610080BF47 /* NewWorkoutView.swift in Sources */,
 				5CD2954A291496B0002242E3 /* RoutineView.swift in Sources */,
 				5CD295A0291B4776002242E3 /* AddRoutineView.swift in Sources */,
 				5CD295A2291C8585002242E3 /* weightUnitOptions.swift in Sources */,

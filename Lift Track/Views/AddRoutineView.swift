@@ -10,20 +10,18 @@ import Combine
 import RealmSwift
 
 struct AddRoutineView: View {
-    @Binding var data: Routine.Data
-    @State private var workoutName = ""
-    @State private var sets: Int? = nil
+    @ObservedRealmObject var newRoutine: Routine
     var body: some View {
         Form {
             Section(header: Text("Routine")) {
-                TextField("Workout Title", text: $data.title)
-                TextField("Total Workouts", value: $data.totalWorkouts, formatter: NumberFormatter())
+                TextField("Workout Title", text: $newRoutine.title)
+                TextField("Total Workouts", value: $newRoutine.totalWorkouts, formatter: NumberFormatter())
                     .keyboardType(.numberPad)
-                TextField("Total Sets", value: $data.totalSets, formatter: NumberFormatter())
+                TextField("Total Sets", value: $newRoutine.totalSets, formatter: NumberFormatter())
                     .keyboardType(.numberPad)
             }
             Section(header: Text("Workouts")) {
-                ForEach(data.workoutList) { workout in
+                ForEach(newRoutine.workoutList) { workout in
                     HStack {
                         Text(workout.workoutName)
                         Spacer()
@@ -32,21 +30,9 @@ struct AddRoutineView: View {
                     }
                 }
                 .onDelete { indices in
-                    data.workoutList.remove(atOffsets: indices)
+                    newRoutine.workoutList.remove(atOffsets: indices)
                 }
-                HStack {
-                    TextField("New Workout", text: $workoutName)
-                    TextField("Sets", value: $sets, formatter: NumberFormatter())
-                    Button(action: {
-                        withAnimation  {
-                            //add a exercise to realm workoutList
-                        }
-                    }) {
-                        Image(systemName:"plus.circle.fill")
-                            .accessibilityLabel("Add Workout")
-                    }
-                    .disabled(workoutName.isEmpty && sets != nil)
-                }
+                NewWorkoutView(newRoutine: newRoutine)
             }
         }
     }
@@ -54,6 +40,6 @@ struct AddRoutineView: View {
 
 struct AddRoutineView_Previews: PreviewProvider {
     static var previews: some View {
-        AddRoutineView(data: .constant(Routine.sampleRoutine[0].data))
+        AddRoutineView(newRoutine: Routine())
     }
 }

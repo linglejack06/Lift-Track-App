@@ -8,7 +8,6 @@
 import RealmSwift
 
 class SetAndWeight: EmbeddedObject, ObjectKeyIdentifiable {
-    @Persisted(primaryKey: true) var _id: ObjectId
     @Persisted var setNumber: Int
     @Persisted var weight: Int
     @Persisted var reps: Int

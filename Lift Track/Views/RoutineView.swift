@@ -10,7 +10,7 @@ import RealmSwift
 
 struct RoutineView: View {
     @State private var isPresentingNewRoutine = false
-    @State private var newRoutine = Routine.Data()
+    @State private var newRoutine = Routine()
     @ObservedResults(Routine.self) var routines
     var body: some View {
         NavigationView {
@@ -30,20 +30,20 @@ struct RoutineView: View {
             })
             .sheet(isPresented: $isPresentingNewRoutine) {
                 NavigationView {
-                    AddRoutineView (data: $newRoutine)
+                    AddRoutineView (newRoutine: newRoutine)
                         .toolbar {
                             ToolbarItem(placement: .cancellationAction) {
                                 Button( action: {
                                     isPresentingNewRoutine = false
-                                    newRoutine = Routine.Data()
+                                    newRoutine = Routine()
                                 }) {
                                     Text("Dismiss")
                                 }
                             }
                             ToolbarItem(placement:.confirmationAction) {
                                 Button(action: {
-                                    let routine = Routine(title: newRoutine.title, totalSets: newRoutine.totalSets, totalWorkouts: newRoutine.totalWorkouts, workoutList: newRoutine.workoutList, historyList: [])
-                                    $routines.append(routine)
+                                    //let routine = Routine(title: newRoutine.title, totalSets: newRoutine.totalSets, totalWorkouts: newRoutine.totalWorkouts, workoutList: newRoutine.workoutList, historyList: [])
+                                    //$routines.append(routine)
                                     isPresentingNewRoutine = false
                                 }) {
                                     Text("Add")

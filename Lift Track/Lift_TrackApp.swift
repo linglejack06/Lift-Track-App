@@ -6,12 +6,16 @@
 //
 
 import SwiftUI
+import RealmSwift
 
+let realm = try! Realm()
 @main
-struct Lift_TrackApp: App {
+struct Lift_TrackApp: SwiftUI.App {
+    
     var body: some Scene {
         WindowGroup {
             RoutineView()
+                .environment(\.realm, realm)
         }
     }
 }

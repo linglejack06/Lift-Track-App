@@ -8,18 +8,13 @@
 import Foundation
 import RealmSwift
 import Realm
+import SwiftUI
 
-enum WeightUnitOptions: String, PersistableEnum, CaseIterable  {
+enum WeightUnitOptions: String, PersistableEnum, CaseIterable, Equatable  {
     case pounds = "lbs"
     case poundsPerSide = "lbs per side"
     case kilograms = "kg"
     case kilogramsPerSide = "kg per side"
     
-    var name: String {
-        rawValue.capitalized
-    }
-    
-    var id: String {
-        name
-    }
+    var localizedName: LocalizedStringKey { LocalizedStringKey(rawValue) }
 }
