@@ -11,8 +11,8 @@ import SwiftUI
 class Routine: Object, ObjectKeyIdentifiable {
     @Persisted(primaryKey: true) var _id: ObjectId
     @Persisted var title: String = ""
-    @Persisted var totalSets: Int = 0
-    @Persisted var totalWorkouts: Int = 0
+    @Persisted var totalSets: Int
+    @Persisted var totalWorkouts: Int
     @Persisted var workoutList: RealmSwift.List<SubRoutine>
     
     var workouts: [SubRoutine] { Array(workoutList) }
@@ -28,41 +28,7 @@ class Routine: Object, ObjectKeyIdentifiable {
     }
 }
 
-extension Routine {
-    struct Data {
-        var title: String = ""
-        var totalSets: Int = 0
-        var totalWorkouts: Int = 0
-        var workoutList: [SubRoutine] = []
-    }
-    
-    var data: Data {
-        return Data(title: title, totalSets: totalSets, totalWorkouts: totalWorkouts, workoutList: workouts)
-    }
-    
-    func update(from data: Data) {
-        title = data.title
-        totalSets = data.totalSets
-        totalWorkouts = data.totalWorkouts
-        for workout in workouts {
-            if !workouts.contains(workout) {
-                self.workoutList.insert(workout, at: 0)
-            }
-        }
-    }
-    
-    convenience init (data: Data) {
-        self.init()
-        title = data.title
-        totalSets = data.totalSets
-        totalWorkouts = data.totalWorkouts
-        for workout in data.workoutList {
-            if !workouts.contains(workout) {
-                self.workoutList.insert(workout, at: 0)
-            }
-        }
-    }
-}
+
 
 extension Routine {
     static let sampleRoutine: [Routine] = [

@@ -42,8 +42,7 @@ struct RoutineView: View {
                             }
                             ToolbarItem(placement:.confirmationAction) {
                                 Button(action: {
-                                    //let routine = Routine(title: newRoutine.title, totalSets: newRoutine.totalSets, totalWorkouts: newRoutine.totalWorkouts, workoutList: newRoutine.workoutList, historyList: [])
-                                    //$routines.append(routine)
+                                    $routines.append(newRoutine)
                                     isPresentingNewRoutine = false
                                 }) {
                                     Text("Add")
