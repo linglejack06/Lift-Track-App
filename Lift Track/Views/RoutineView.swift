@@ -11,7 +11,8 @@ import RealmSwift
 struct RoutineView: View {
     @State private var isPresentingNewRoutine = false
     @State private var newRoutine = Routine()
-    @ObservedResults(Routine.self) var routines
+    // DELETE true when deploying app ONLY FOR DEVELOPMENT
+    @ObservedResults(Routine.self, configuration: Realm.Configuration(deleteRealmIfMigrationNeeded: true)) var routines
     var body: some View {
         NavigationView {
             ScrollView {
@@ -23,32 +24,9 @@ struct RoutineView: View {
                     }
                 }
             }
-            .navigationBarItems(trailing: Button( action: {
-                isPresentingNewRoutine = true
-            }) {
-                Image(systemName: "Plus")
-            })
-            .sheet(isPresented: $isPresentingNewRoutine) {
-                NavigationView {
-                    AddRoutineView (newRoutine: newRoutine)
-                        .toolbar {
-                            ToolbarItem(placement: .cancellationAction) {
-                                Button( action: {
-                                    isPresentingNewRoutine = false
-                                    newRoutine = Routine()
-                                }) {
-                                    Text("Dismiss")
-                                }
-                            }
-                            ToolbarItem(placement:.confirmationAction) {
-                                Button(action: {
-                                    $routines.append(newRoutine)
-                                    isPresentingNewRoutine = false
-                                }) {
-                                    Text("Add")
-                                }
-                            }
-                        }
+            .toolbar {
+                ToolbarItem(placement: ToolbarItemPlacement.navigationBarTrailing) {
+                    NavigationLink("Add Routine", destination: AddRoutineView(newRoutine: newRoutine))
                 }
             }
         }

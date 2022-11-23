@@ -11,6 +11,8 @@ import RealmSwift
 
 struct AddRoutineView: View {
     @ObservedRealmObject var newRoutine: Routine
+    @ObservedResults(Routine.self) var routines
+    @State var isNewWorkout: Bool = false
     var body: some View {
         NavigationView {
            Form {
@@ -21,18 +23,44 @@ struct AddRoutineView: View {
                     TextField("Total Sets", value: $newRoutine.totalSets, formatter: NumberFormatter())
                         .keyboardType(.numberPad)
                 }
-                Section(header: Text("Workouts")) {
-                    ForEach(newRoutine.workoutList) { workout in
-                        HStack {
-                            Text(workout.workoutName)
-                            Spacer()
-                                .frame(width: 40)
-                            Text("\(String(workout.sets)) Sets")
-                        }
-                    }
-                    .onDelete(perform: $newRoutine.workoutList.remove)
-                    NewWorkoutView(newRoutine: newRoutine)
-                }
+               Section(header: Text("Workouts")) {
+                   ForEach(newRoutine.workoutList) { workout in
+                       HStack {
+                           Text(workout.workoutName)
+                           Spacer()
+                               .frame(width: 40)
+                           Text("\(String(workout.sets)) Sets")
+                       }
+                   }
+                   .onDelete(perform: $newRoutine.workoutList.remove)
+                   Button( action: {
+                       isNewWorkout = true
+                   }) {
+                       Image(systemName: "plus")
+                   }
+               }
+               .sheet(isPresented: $isNewWorkout) {
+                   NavigationView {
+                       NewWorkoutView(newRoutine: newRoutine, isNewWorkout: $isNewWorkout)
+                           .toolbar {
+                               ToolbarItem(placement: ToolbarItemPlacement.navigationBarLeading) {
+                                   Button(action: {
+                                       isNewWorkout = false
+                                   }) {
+                                       Text("Cancel")
+                                   }
+                               }
+                               ToolbarItem(placement: ToolbarItemPlacement.navigationBarTrailing) {
+                                   Button(action: {
+                                       isNewWorkout = false
+
+                                   }) {
+                                       Text("Add")
+                                   }
+                               }
+                           }
+                   }
+               }
             }
            .navigationTitle(newRoutine.title != "" ? newRoutine.title : "New Routine")
         }
