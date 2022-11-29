@@ -11,10 +11,13 @@ import RealmSwift
 
 struct AddRoutineView: View {
     @ObservedRealmObject var newRoutine: Routine
-    @ObservedResults(Routine.self) var routines
     @State var isNewWorkout: Bool = false
+    @State var sets: Int? = nil
+    @State var workoutName: String = ""
+    @State var weightUnit: WeightUnitOptions = .pounds
+    @Binding var isPresentingNewRoutine: Bool
     var body: some View {
-        NavigationView {
+        NavigationStack {
            Form {
                 Section(header: Text("Routine")) {
                     TextField("Workout Title", text: $newRoutine.title)
@@ -40,8 +43,8 @@ struct AddRoutineView: View {
                    }
                }
                .sheet(isPresented: $isNewWorkout) {
-                   NavigationView {
-                       NewWorkoutView(newRoutine: newRoutine, isNewWorkout: $isNewWorkout)
+                   NavigationStack {
+                       NewWorkoutView(workoutName: $workoutName, sets: $sets, weightUnit: $weightUnit, isNewWorkout: $isNewWorkout)
                            .toolbar {
                                ToolbarItem(placement: ToolbarItemPlacement.navigationBarLeading) {
                                    Button(action: {
@@ -53,7 +56,23 @@ struct AddRoutineView: View {
                                ToolbarItem(placement: ToolbarItemPlacement.navigationBarTrailing) {
                                    Button(action: {
                                        isNewWorkout = false
-
+                                           withAnimation  {
+                                               //unwrap sets optional int
+                                               if let sets = sets {
+                                                   var setAndWeight: [SetAndWeight] = []
+                                                   // iterate through number of sets
+                                                   for set in 0 ... sets - 1 {
+                                                       // create a SetAndWeight Object for each set in workout
+                                                       let temp = SetAndWeight(setNumber: set + 1, weight: nil, reps: nil)
+                                                       // then append the SetAndWeight object
+                                                       setAndWeight.append(temp)
+                                                   }
+                                                   // initialize the new workout using the set and weight above
+                                                   let newWorkout = SubRoutine(workoutName: workoutName, setAndWeightList: setAndWeight, sets: sets, weightUnit: weightUnit)
+                                                   // append the new workout to new routine
+                                                   $newRoutine.workoutList.append(newWorkout)
+                                               }
+                                           }
                                    }) {
                                        Text("Add")
                                    }
@@ -69,6 +88,6 @@ struct AddRoutineView: View {
 
 struct AddRoutineView_Previews: PreviewProvider {
     static var previews: some View {
-        AddRoutineView(newRoutine: Routine())
+        AddRoutineView(newRoutine: Routine(), isPresentingNewRoutine: .constant(false))
     }
 }

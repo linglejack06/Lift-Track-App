@@ -9,25 +9,44 @@ import SwiftUI
 import RealmSwift
 
 struct RoutineView: View {
-    @State private var isPresentingNewRoutine = false
+    @State var isPresentingNewRoutine = false
+    @State var path = NavigationPath()
     @State private var newRoutine = Routine()
     // DELETE true when deploying app ONLY FOR DEVELOPMENT
     @ObservedResults(Routine.self, configuration: Realm.Configuration(deleteRealmIfMigrationNeeded: true)) var routines
     var body: some View {
-        NavigationView {
+        NavigationStack(path: $path) {
             ScrollView {
                 if let routines = routines {
                     ForEach(routines) { routine in
-                        NavigationLink(destination: SubRoutineView(routine: routine)) {
+                        NavigationLink(value: routine) {
                             CardView(routine: routine)
                         }
                     }
                 }
             }
+            .navigationDestination(for: Routine.self) { routine in
+                SubRoutineView(routine: routine)
+            }
             .toolbar {
                 ToolbarItem(placement: ToolbarItemPlacement.navigationBarTrailing) {
-                    NavigationLink("Add Routine", destination: AddRoutineView(newRoutine: newRoutine))
+                    NavigationLink(value: newRoutine) {
+                        Button("Add Routine") {
+                            isPresentingNewRoutine = true
+                        }
+                    }
                 }
+            }
+            .navigationDestination(isPresented: $isPresentingNewRoutine) {
+                AddRoutineView(newRoutine: newRoutine, isPresentingNewRoutine: $isPresentingNewRoutine)
+                    .toolbar {
+                        ToolbarItem(placement: ToolbarItemPlacement.navigationBarTrailing) {
+                            Button("Save") {
+                                isPresentingNewRoutine = false
+                                $routines.append(newRoutine)
+                            }
+                        }
+                    }
             }
         }
     }
