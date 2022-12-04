@@ -9,9 +9,10 @@ import SwiftUI
 import RealmSwift
 
 struct NewWorkoutView: View {
-    @Binding var workoutName: String
-    @Binding var sets: Int?
-    @Binding var weightUnit: WeightUnitOptions
+    @ObservedRealmObject var workout: SubRoutine
+    @State var workoutName: String = ""
+    @State var sets: Int?
+    @State var weightUnit: WeightUnitOptions = WeightUnitOptions.pounds
     @Binding var isNewWorkout: Bool
     
     var body: some View {
@@ -41,6 +42,6 @@ struct NewWorkoutView: View {
 
 struct NewWorkoutView_Previews: PreviewProvider {
     static var previews: some View {
-        NewWorkoutView(workoutName: .constant("Chest Press"), sets: .constant(5), weightUnit: .constant(WeightUnitOptions.pounds), isNewWorkout: .constant(true))
+        NewWorkoutView(workout: SubRoutine(), isNewWorkout: .constant(true))
     }
 }

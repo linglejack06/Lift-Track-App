@@ -15,6 +15,7 @@ struct AddRoutineView: View {
     @State var sets: Int? = nil
     @State var workoutName: String = ""
     @State var weightUnit: WeightUnitOptions = .pounds
+    @State var newWorkout = SubRoutine()
     @Binding var isPresentingNewRoutine: Bool
     var body: some View {
         NavigationStack {
@@ -36,51 +37,20 @@ struct AddRoutineView: View {
                        }
                    }
                    .onDelete(perform: $newRoutine.workoutList.remove)
-                   Button( action: {
-                       isNewWorkout = true
-                   }) {
-                       Image(systemName: "plus")
-                   }
-               }
-               .sheet(isPresented: $isNewWorkout) {
-                   NavigationStack {
-                       NewWorkoutView(workoutName: $workoutName, sets: $sets, weightUnit: $weightUnit, isNewWorkout: $isNewWorkout)
-                           .toolbar {
-                               ToolbarItem(placement: ToolbarItemPlacement.navigationBarLeading) {
-                                   Button(action: {
-                                       isNewWorkout = false
-                                   }) {
-                                       Text("Cancel")
-                                   }
-                               }
-                               ToolbarItem(placement: ToolbarItemPlacement.navigationBarTrailing) {
-                                   Button(action: {
-                                       isNewWorkout = false
-                                           withAnimation  {
-                                               //unwrap sets optional int
-                                               if let sets = sets {
-                                                   var setAndWeight: [SetAndWeight] = []
-                                                   // iterate through number of sets
-                                                   for set in 0 ... sets - 1 {
-                                                       // create a SetAndWeight Object for each set in workout
-                                                       let temp = SetAndWeight(setNumber: set + 1, weight: nil, reps: nil)
-                                                       // then append the SetAndWeight object
-                                                       setAndWeight.append(temp)
-                                                   }
-                                                   // initialize the new workout using the set and weight above
-                                                   let newWorkout = SubRoutine(workoutName: workoutName, setAndWeightList: setAndWeight, sets: sets, weightUnit: weightUnit)
-                                                   // append the new workout to new routine
-                                                   $newRoutine.workoutList.append(newWorkout)
-                                               }
-                                           }
-                                   }) {
-                                       Text("Add")
-                                   }
-                               }
+                   List {
+                       NavigationLink(value: newWorkout) {
+                           Button( action: {
+                               isNewWorkout = true
+                           }) {
+                               Image(systemName: "plus")
                            }
+                       }
                    }
                }
             }
+           .navigationDestination(for: SubRoutine.self) { workout in
+               NewWorkoutView(workout: workout, isNewWorkout: $isNewWorkout)
+           }
            .navigationTitle(newRoutine.title != "" ? newRoutine.title : "New Routine")
         }
     }
