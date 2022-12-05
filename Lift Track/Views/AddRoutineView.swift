@@ -37,21 +37,34 @@ struct AddRoutineView: View {
                        }
                    }
                    .onDelete(perform: $newRoutine.workoutList.remove)
-                   List {
-                       NavigationLink(value: newWorkout) {
-                           Button( action: {
-                               isNewWorkout = true
-                           }) {
-                               Image(systemName: "plus")
-                           }
-                       }
-                   }
                }
             }
-           .navigationDestination(for: SubRoutine.self) { workout in
-               NewWorkoutView(workout: workout, isNewWorkout: $isNewWorkout)
-           }
            .navigationTitle(newRoutine.title != "" ? newRoutine.title : "New Routine")
+        }
+        NavigationStack {
+            VStack {
+                NavigationLink(value: newWorkout) {
+                    Button( action: {
+                        isNewWorkout = true
+                    }) {
+                        HStack {
+                            Text("Add Workout")
+                                .padding()
+                        }
+                    }
+                }
+            }
+            .navigationDestination(isPresented: $isNewWorkout) {
+                NewWorkoutView(workout: newWorkout, isNewWorkout: $isNewWorkout)
+                    .toolbar {
+                        ToolbarItem(placement: ToolbarItemPlacement.bottomBar) {
+                            Button("Add To Routine") {
+                                isNewWorkout = false
+                                $newRoutine.workoutList.append(newWorkout)
+                            }
+                        }
+                    }
+            }
         }
     }
 }

@@ -17,11 +17,9 @@ struct RoutineView: View {
     var body: some View {
         NavigationStack(path: $path) {
             ScrollView {
-                if let routines = routines {
-                    ForEach(routines) { routine in
-                        NavigationLink(value: routine) {
-                            CardView(routine: routine)
-                        }
+                ForEach(routines) { routine in
+                    NavigationLink(value: routine) {
+                        CardView(routine: routine)
                     }
                 }
             }
@@ -41,7 +39,7 @@ struct RoutineView: View {
                 AddRoutineView(newRoutine: newRoutine, isPresentingNewRoutine: $isPresentingNewRoutine)
                     .toolbar {
                         ToolbarItem(placement: ToolbarItemPlacement.navigationBarTrailing) {
-                            Button("save") {
+                            Button("Save 1") {
                                 isPresentingNewRoutine = false
                                 $routines.append(newRoutine)
                             }

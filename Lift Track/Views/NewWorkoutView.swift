@@ -16,7 +16,7 @@ struct NewWorkoutView: View {
     @Binding var isNewWorkout: Bool
     
     var body: some View {
-        List {
+        Form {
             VStack {
                 HStack {
                     TextField("New Workout", text: $workoutName, axis: .vertical)
@@ -32,8 +32,6 @@ struct NewWorkoutView: View {
                     }
                     .padding()
                 }
-                Spacer()
-
             }
         }
     }
