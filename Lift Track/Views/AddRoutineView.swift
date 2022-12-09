@@ -16,8 +16,6 @@ struct AddRoutineView: View {
     @State var workoutName: String = ""
     @State var weightUnit: WeightUnitOptions = .pounds
     @State var newWorkout = SubRoutine()
-    @Binding var isPresentingNewRoutine: Bool
-    @Binding var path: NavigationPath
     var body: some View {
            Form {
                 Section(header: Text("Routine")) {
@@ -45,7 +43,7 @@ struct AddRoutineView: View {
                    .onDelete(perform: $newRoutine.workoutList.remove)
                }
                VStack {
-                   NewWorkoutView(workout: newWorkout, isNewWorkout: $isNewWorkout, path: $path)
+                   NewWorkoutView(workout: newWorkout)
                        .padding()
                    Button("Add To Routine") {
                        $newRoutine.workoutList.append(newWorkout)
@@ -60,6 +58,6 @@ struct AddRoutineView: View {
 
 struct AddRoutineView_Previews: PreviewProvider {
     static var previews: some View {
-        AddRoutineView(newRoutine: Routine(), isPresentingNewRoutine: .constant(false), path: .constant(NavigationPath()))
+        AddRoutineView(newRoutine: Routine())
     }
 }

@@ -6,16 +6,24 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct SubRoutineView: View {
-    var routine: Routine
+    @ObservedRealmObject var routine: Routine
+    @State var isEditing = false
+    @ObservedResults(Routine.self, configuration: Realm.Configuration(deleteRealmIfMigrationNeeded: true)) var routines
     var body: some View {
         List {
-            Text(routine.title)
             ForEach(routine.workoutList) { workout in
-                Text(workout.workoutName)
+                HStack {
+                    Text(workout.workoutName)
+                    Spacer()
+                    Text("\(String(workout.sets)) sets")
+                }
             }
         }
+        .navigationTitle("💪\(routine.title)💪")
+        //TODO: add edit button to be able to change title, add workouts, change workout names, and add sets.
     }
 }
 
