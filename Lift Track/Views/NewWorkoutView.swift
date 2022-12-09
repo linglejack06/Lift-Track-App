@@ -10,36 +10,34 @@ import RealmSwift
 
 struct NewWorkoutView: View {
     @ObservedRealmObject var workout: SubRoutine
-    @State var workoutName: String = ""
-    @State var sets: Int?
     @State var weightUnit: WeightUnitOptions = WeightUnitOptions.pounds
     @Binding var isNewWorkout: Bool
+    @Binding var path: NavigationPath
     
     var body: some View {
-        Form {
             VStack {
+                TextField("New Workout", text: $workout.workoutName, axis: .vertical)
                 HStack {
-                    TextField("New Workout", text: $workoutName, axis: .vertical)
-                    TextField("Sets", value: $sets, formatter: NumberFormatter())
+                    Text("Sets:")
+                    TextField("Sets", value: $workout.sets, formatter: NumberFormatter())
+                        .padding()
                 }
-                .padding()
-                HStack {
-                    Picker("Weight Unit", selection: $weightUnit) {
-                        ForEach(WeightUnitOptions.allCases, id: \.self) { unit in
-                            Text(unit.localizedName)
-                                .tag(unit)
-                        }
-                    }
-                    .padding()
-                }
+               // HStack {
+                  //  Picker("Weight Unit", selection: $weightUnit) {
+                      //  ForEach(WeightUnitOptions.allCases, id: \.self) { unit in
+                         //   Text(unit.localizedName)
+                        //        .tag(unit)
+                     //   }
+                  //  }
+                  //  .padding()
+               // }
             }
-        }
     }
 }
 
 
 struct NewWorkoutView_Previews: PreviewProvider {
     static var previews: some View {
-        NewWorkoutView(workout: SubRoutine(), isNewWorkout: .constant(true))
+        NewWorkoutView(workout: SubRoutine(), isNewWorkout: .constant(true), path: .constant(NavigationPath()))
     }
 }

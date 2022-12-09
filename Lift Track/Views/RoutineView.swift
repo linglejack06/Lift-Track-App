@@ -36,12 +36,13 @@ struct RoutineView: View {
                 }
             }
             .navigationDestination(isPresented: $isPresentingNewRoutine) {
-                AddRoutineView(newRoutine: newRoutine, isPresentingNewRoutine: $isPresentingNewRoutine)
+                AddRoutineView(newRoutine: newRoutine, isPresentingNewRoutine: $isPresentingNewRoutine, path: $path)
                     .toolbar {
                         ToolbarItem(placement: ToolbarItemPlacement.navigationBarTrailing) {
                             Button("Save 1") {
                                 isPresentingNewRoutine = false
                                 $routines.append(newRoutine)
+                                newRoutine = Routine()
                             }
                         }
                     }

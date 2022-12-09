@@ -11,7 +11,10 @@ struct SubRoutineView: View {
     var routine: Routine
     var body: some View {
         List {
-            Text("List Item")
+            Text(routine.title)
+            ForEach(routine.workoutList) { workout in
+                Text(workout.workoutName)
+            }
         }
     }
 }

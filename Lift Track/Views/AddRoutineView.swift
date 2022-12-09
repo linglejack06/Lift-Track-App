@@ -17,15 +17,21 @@ struct AddRoutineView: View {
     @State var weightUnit: WeightUnitOptions = .pounds
     @State var newWorkout = SubRoutine()
     @Binding var isPresentingNewRoutine: Bool
+    @Binding var path: NavigationPath
     var body: some View {
-        NavigationStack {
            Form {
                 Section(header: Text("Routine")) {
                     TextField("Workout Title", text: $newRoutine.title)
-                    TextField("Total Workouts", value: $newRoutine.totalWorkouts, formatter: NumberFormatter())
-                        .keyboardType(.numberPad)
-                    TextField("Total Sets", value: $newRoutine.totalSets, formatter: NumberFormatter())
-                        .keyboardType(.numberPad)
+                    HStack {
+                        Text("Total Workouts:")
+                        TextField("Total Workouts", value: $newRoutine.totalWorkouts, formatter: NumberFormatter())
+                            .keyboardType(.numberPad)
+                    }
+                    HStack {
+                        Text("Total Sets:")
+                        TextField("Total Sets", value: $newRoutine.totalSets, formatter: NumberFormatter())
+                            .keyboardType(.numberPad)
+                    }
                 }
                Section(header: Text("Workouts")) {
                    ForEach(newRoutine.workoutList) { workout in
@@ -38,39 +44,22 @@ struct AddRoutineView: View {
                    }
                    .onDelete(perform: $newRoutine.workoutList.remove)
                }
+               VStack {
+                   NewWorkoutView(workout: newWorkout, isNewWorkout: $isNewWorkout, path: $path)
+                       .padding()
+                   Button("Add To Routine") {
+                       $newRoutine.workoutList.append(newWorkout)
+                       newWorkout = SubRoutine()
+                   }
+               }
             }
-           .navigationTitle(newRoutine.title != "" ? newRoutine.title : "New Routine")
-        }
-        NavigationStack {
-            VStack {
-                NavigationLink(value: newWorkout) {
-                    Button( action: {
-                        isNewWorkout = true
-                    }) {
-                        HStack {
-                            Text("Add Workout")
-                                .padding()
-                        }
-                    }
-                }
-            }
-            .navigationDestination(isPresented: $isNewWorkout) {
-                NewWorkoutView(workout: newWorkout, isNewWorkout: $isNewWorkout)
-                    .toolbar {
-                        ToolbarItem(placement: ToolbarItemPlacement.bottomBar) {
-                            Button("Add To Routine") {
-                                isNewWorkout = false
-                                $newRoutine.workoutList.append(newWorkout)
-                            }
-                        }
-                    }
-            }
+           .navigationTitle(newRoutine.title != "" ? "💪\(newRoutine.title )💪": "New Routine")
         }
     }
-}
+
 
 struct AddRoutineView_Previews: PreviewProvider {
     static var previews: some View {
-        AddRoutineView(newRoutine: Routine(), isPresentingNewRoutine: .constant(false))
+        AddRoutineView(newRoutine: Routine(), isPresentingNewRoutine: .constant(false), path: .constant(NavigationPath()))
     }
 }
