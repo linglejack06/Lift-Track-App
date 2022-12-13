@@ -24,6 +24,14 @@ struct SubRoutineView: View {
         }
         .navigationTitle("💪\(routine.title)💪")
         //TODO: add edit button to be able to change title, add workouts, change workout names, and add sets.
+        //TODO: add start function to iterate through each set and workout in the routine
+        .toolbar {
+            ToolbarItem(placement: ToolbarItemPlacement.bottomBar) {
+                NavigationLink(destination: StartRoutineView(usedRoutine: routine)) {
+                    Text("Start")
+                }
+            }
+        }
     }
 }
 

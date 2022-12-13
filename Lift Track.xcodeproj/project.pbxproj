@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C5067082948B73D009E5BEE /* StartRoutineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5067072948B73D009E5BEE /* StartRoutineView.swift */; };
 		5C5FEFD82923C12E0080BF47 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5FEFD72923C12E0080BF47 /* User.swift */; };
 		5C5FEFDA292722610080BF47 /* NewWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5FEFD9292722610080BF47 /* NewWorkoutView.swift */; };
 		5CD29548291496B0002242E3 /* Lift_TrackApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD29547291496B0002242E3 /* Lift_TrackApp.swift */; };
@@ -47,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5C5067072948B73D009E5BEE /* StartRoutineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartRoutineView.swift; sourceTree = "<group>"; };
 		5C5FEFD72923C12E0080BF47 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		5C5FEFD9292722610080BF47 /* NewWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWorkoutView.swift; sourceTree = "<group>"; };
 		5CD29544291496B0002242E3 /* Lift Track.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lift Track.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -177,6 +179,7 @@
 				5C5FEFD9292722610080BF47 /* NewWorkoutView.swift */,
 				5CD2959F291B4776002242E3 /* AddRoutineView.swift */,
 				5CD2959129183625002242E3 /* SubRoutineView.swift */,
+				5C5067072948B73D009E5BEE /* StartRoutineView.swift */,
 				5CD2958F29183465002242E3 /* CardView.swift */,
 				5CD295952919FB27002242E3 /* WorkoutListItemView.swift */,
 			);
@@ -322,6 +325,7 @@
 				5C5FEFD82923C12E0080BF47 /* User.swift in Sources */,
 				5CD2959029183465002242E3 /* CardView.swift in Sources */,
 				5CD2958E2917092C002242E3 /* History.swift in Sources */,
+				5C5067082948B73D009E5BEE /* StartRoutineView.swift in Sources */,
 				5CD295942919FA00002242E3 /* EditWorkoutView.swift in Sources */,
 				5CD2959229183625002242E3 /* SubRoutineView.swift in Sources */,
 				5C5FEFDA292722610080BF47 /* NewWorkoutView.swift in Sources */,
