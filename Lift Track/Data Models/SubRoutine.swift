@@ -11,17 +11,15 @@ class SubRoutine: EmbeddedObject, ObjectKeyIdentifiable {
     @Persisted var workoutName: String = ""
     @Persisted var setAndWeightList: RealmSwift.List<SetAndWeight>
     @Persisted var sets: Int = 0
-    @Persisted var weightUnit = WeightUnitOptions.pounds
     
     var setAndWeight: [SetAndWeight] { Array(setAndWeightList) }
     
-    convenience init( workoutName: String = "", setAndWeightList: [SetAndWeight] = [], sets: Int = 0, weightUnit: WeightUnitOptions) {
+    convenience init( workoutName: String = "", setAndWeightList: [SetAndWeight] = [], sets: Int = 0) {
         self.init()
         self.workoutName = workoutName
         for set in setAndWeightList {
             self.setAndWeightList.insert(set, at: 0)
         }
         self.sets = sets
-        self.weightUnit = weightUnit
     }
 }

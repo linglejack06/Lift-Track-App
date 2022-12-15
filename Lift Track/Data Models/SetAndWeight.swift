@@ -20,6 +20,12 @@ class SetAndWeight: EmbeddedObject, ObjectKeyIdentifiable {
         self.reps = reps
         self.notes = notes
     }
+    
+    func add (weight: Int, reps: Int, notes: String? = "") {
+        self.weight = weight
+        self.reps = reps
+        self.notes = notes
+    }
 }
 
 

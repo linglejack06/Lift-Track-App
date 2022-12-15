@@ -32,6 +32,6 @@ class Routine: Object, ObjectKeyIdentifiable {
 
 extension Routine {
     static let sampleRoutine: [Routine] = [
-        Routine(title: "Chest and Back", totalSets: 5, totalWorkouts: 1, workoutList: [SubRoutine(workoutName: "Chest Press", setAndWeightList: [SetAndWeight(setNumber: 1, weight: 45, reps: 10)], sets: 5, weightUnit: WeightUnitOptions.pounds)])
+        Routine(title: "Chest and Back", totalSets: 5, totalWorkouts: 1, workoutList: [SubRoutine(workoutName: "Chest Press", setAndWeightList: [SetAndWeight(setNumber: 1, weight: 45, reps: 10)], sets: 5)])
     ]
 }
