@@ -12,7 +12,7 @@ struct RoutineView: View {
     @State var isPresentingNewRoutine = false
     @State private var newRoutine = Routine()
     // DELETE true when deploying app ONLY FOR DEVELOPMENT
-    @ObservedResults(Routine.self, configuration: Realm.Configuration(deleteRealmIfMigrationNeeded: true)) var routines
+    @Environment(\.managedObjectContext) var managedObjectContext
     var body: some View {
         NavigationStack {
             List {

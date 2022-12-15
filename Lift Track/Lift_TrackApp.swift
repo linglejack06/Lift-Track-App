@@ -6,15 +6,21 @@
 //
 
 import SwiftUI
-import RealmSwift
+import CoreData
 
 
 
 @main
 struct Lift_TrackApp: SwiftUI.App {
+    let persistenceController = PersistenceController.shared
+    @Environment(\.scenePhase) var scenePhase
     var body: some Scene {
-        WindowGroup {
+        WindowGroup<RoutineView> {
             RoutineView()
+                .environment(\.managedObjectContext, persistenceController.container.viewContext) as! RoutineView
+        }
+        .onChange(of: scenePhase) { _ in
+            persistenceController.save()
         }
     }
 }
