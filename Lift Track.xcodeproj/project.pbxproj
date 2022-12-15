@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5C5067082948B73D009E5BEE /* StartRoutineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5067072948B73D009E5BEE /* StartRoutineView.swift */; };
 		5C59EC98294B92CC003E6259 /* RoutineModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5C59EC96294B92CC003E6259 /* RoutineModel.xcdatamodeld */; };
+		5C59EC9D294B9425003E6259 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C59EC9C294B9425003E6259 /* PersistenceController.swift */; };
 		5C5FEFD82923C12E0080BF47 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5FEFD72923C12E0080BF47 /* User.swift */; };
 		5C5FEFDA292722610080BF47 /* NewWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5FEFD9292722610080BF47 /* NewWorkoutView.swift */; };
 		5CD29548291496B0002242E3 /* Lift_TrackApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD29547291496B0002242E3 /* Lift_TrackApp.swift */; };
@@ -51,6 +52,7 @@
 /* Begin PBXFileReference section */
 		5C5067072948B73D009E5BEE /* StartRoutineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartRoutineView.swift; sourceTree = "<group>"; };
 		5C59EC97294B92CC003E6259 /* RoutineModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RoutineModel.xcdatamodel; sourceTree = "<group>"; };
+		5C59EC9C294B9425003E6259 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		5C5FEFD72923C12E0080BF47 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		5C5FEFD9292722610080BF47 /* NewWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWorkoutView.swift; sourceTree = "<group>"; };
 		5CD29544291496B0002242E3 /* Lift Track.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lift Track.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -106,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				5C59EC96294B92CC003E6259 /* RoutineModel.xcdatamodeld */,
+				5C59EC9C294B9425003E6259 /* PersistenceController.swift */,
 			);
 			path = "Core Data Models";
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 				5CD2954A291496B0002242E3 /* RoutineView.swift in Sources */,
 				5C59EC98294B92CC003E6259 /* RoutineModel.xcdatamodeld in Sources */,
 				5CD295A0291B4776002242E3 /* AddRoutineView.swift in Sources */,
+				5C59EC9D294B9425003E6259 /* PersistenceController.swift in Sources */,
 				5CD295A2291C8585002242E3 /* weightUnitOptions.swift in Sources */,
 				5CD2958C2917072B002242E3 /* SetAndWeight.swift in Sources */,
 				5CD29548291496B0002242E3 /* Lift_TrackApp.swift in Sources */,
