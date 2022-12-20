@@ -6,14 +6,14 @@
 //
 
 import SwiftUI
-import RealmSwift
+import CoreData
 
 struct CardView: View {
-    @ObservedRealmObject var routine: Routine
+    var routine: Routine
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
-                Text(routine.title)
+                Text(routine.title ?? "")
                     .font(.headline)
                     .accessibilityAddTraits(.isHeader)
                     .foregroundColor(.primary)
@@ -27,6 +27,6 @@ struct CardView: View {
 
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
-        CardView(routine: Routine(title: "Chest and Back", totalSets: 4, totalWorkouts: 1))
+        CardView(routine: Routine)
     }
 }

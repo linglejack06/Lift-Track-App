@@ -41,15 +41,17 @@ struct PersistenceController {
         }
     }
     
-    func save() {
+    func save() throws {
         let context = container.viewContext
         
         if context.hasChanges {
-            do {
-                try context.save()
-            } catch {
-                
-            }
+            try context.save()
         }
+    }
+    
+    func delete(_ object: NSManagedObject) throws {
+        let context = container.viewContext
+        context.delete(object)
+        try save()
     }
 }

@@ -6,22 +6,24 @@
 //
 
 import SwiftUI
-import RealmSwift
+import CoreData
 
 struct RoutineView: View {
     @State var isPresentingNewRoutine = false
     @State private var newRoutine = Routine()
-    // DELETE true when deploying app ONLY FOR DEVELOPMENT
+    // adds the managed object so fetch requests can be performed
     @Environment(\.managedObjectContext) var managedObjectContext
+    // fetches the routines stored in the core data model
+    @FetchRequest(sortDescriptors: [SortDescriptor(\.title)]) private var routines: FetchedResults<Routine>
     var body: some View {
         NavigationStack {
             List {
                 ForEach(routines) { routine in
-                    NavigationLink(value: routine) {
+                    NavigationLink {SubRoutineView(routine: routine)
+                    } label: {
                         CardView(routine: routine)
                     }
                 }
-                .onDelete(perform: $routines.remove)
             }
             .navigationDestination(for: Routine.self) { routine in
                 SubRoutineView(routine: routine)
