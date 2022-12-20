@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21513" systemVersion="22A380" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="History" representedClassName="History" syncable="YES" codeGenerationType="class">
+    <entity name="History" representedClassName="History" syncable="YES">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="routineTitle" optional="YES" attributeType="String"/>
         <relationship name="workouts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Workout" inverseName="history" inverseEntity="Workout"/>
     </entity>
-    <entity name="Routine" representedClassName="Routine" syncable="YES" codeGenerationType="class">
+    <entity name="Routine" representedClassName="Routine" syncable="YES">
         <attribute name="title" optional="YES" attributeType="String"/>
         <attribute name="totalSets" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="totalWorkouts" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="workouts" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Workout" inverseName="routines" inverseEntity="Workout"/>
     </entity>
-    <entity name="Set" representedClassName="Set" parentEntity="Workout" syncable="YES" codeGenerationType="class">
+    <entity name="Set" representedClassName="Set" parentEntity="Workout" syncable="YES">
         <attribute name="notes" optional="YES" attributeType="String"/>
         <attribute name="reps" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="weight" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="workout" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Workout" inverseName="setList" inverseEntity="Workout"/>
     </entity>
-    <entity name="Workout" representedClassName="Workout" parentEntity="Routine" syncable="YES" codeGenerationType="class">
+    <entity name="Workout" representedClassName="Workout" parentEntity="Routine" syncable="YES">
         <attribute name="sets" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="workoutName" optional="YES" attributeType="String"/>
         <relationship name="history" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="History" inverseName="workouts" inverseEntity="History"/>
