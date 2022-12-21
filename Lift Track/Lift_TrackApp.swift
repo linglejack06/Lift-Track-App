@@ -12,7 +12,7 @@ import CoreData
 
 @main
 struct Lift_TrackApp: SwiftUI.App {
-    let persistenceController = PersistenceController.shared
+    @StateObject private var persistenceController = PersistenceController()
     @Environment(\.scenePhase) var scenePhase
     var body: some Scene {
         WindowGroup<RoutineView> {
@@ -20,7 +20,7 @@ struct Lift_TrackApp: SwiftUI.App {
                 .environment(\.managedObjectContext, persistenceController.container.viewContext) as! RoutineView
         }
         .onChange(of: scenePhase) { _ in
-            persistenceController.save()
+            persistenceController.save(context: persistenceController.container.viewContext)
         }
     }
 }

@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
-import RealmSwift
+import CoreData
 
 struct SubRoutineView: View {
-    @ObservedRealmObject var routine: Routine
+    @Environment(\.managedObjectContext) var managedObjectContext
     @State var isEditing = false
-    @ObservedResults(Routine.self, configuration: Realm.Configuration(deleteRealmIfMigrationNeeded: true)) var routines
+    // similar to a binding
+    // takes eleemnt from above and has ability to modify it through the edit button which will be added
+    var routine: FetchedResults<Routine>.Element
     var body: some View {
         List {
             ForEach(routine.workoutList) { workout in

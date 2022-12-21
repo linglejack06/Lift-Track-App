@@ -39,17 +39,17 @@ class PersistenceController: ObservableObject {
         }
     }
     
-    func save() throws {
-        let context = container.viewContext
-        
-        if context.hasChanges {
+    func save(context: NSManagedObjectContext) {
+        do {
             try context.save()
+        } catch {
+            print("Routine could not be saved")
         }
     }
     
     func delete(_ object: NSManagedObject) throws {
         let context = container.viewContext
         context.delete(object)
-        try save()
+        save(context: context)
     }
 }
