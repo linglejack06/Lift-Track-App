@@ -7,11 +7,11 @@
 
 import CoreData
 
-struct PersistenceController {
+class PersistenceController: ObservableObject {
     //initializes a controller for the whole app
     static let shared = PersistenceController()
     // initializes storage for app
-    let container: NSPersistentContainer
+    let container = NSPersistentContainer(name: "RoutineModel")
     
     //configuration for previews
     static var preview: PersistenceController = {
@@ -29,8 +29,6 @@ struct PersistenceController {
     
     // init to load core data, optionally in memory for previews
     init(inMemory: Bool = false) {
-        container = NSPersistentContainer(name: "RoutineModel")
-        
         if inMemory {
             container.persistentStoreDescriptions.first?.url = URL(fileURLWithPath: "/dev/null")
         }
