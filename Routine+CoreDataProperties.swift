@@ -2,7 +2,7 @@
 //  Routine+CoreDataProperties.swift
 //  Lift Track
 //
-//  Created by Jack Lingle on 12/20/22.
+//  Created by Jack Lingle on 12/21/22.
 //
 //
 
@@ -19,6 +19,7 @@ extension Routine {
     @NSManaged public var title: String?
     @NSManaged public var totalSets: Int16
     @NSManaged public var totalWorkouts: Int16
+    @NSManaged public var id: UUID?
     @NSManaged public var workouts: NSOrderedSet?
 
 }

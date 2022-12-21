@@ -2,7 +2,7 @@
 //  History+CoreDataProperties.swift
 //  Lift Track
 //
-//  Created by Jack Lingle on 12/20/22.
+//  Created by Jack Lingle on 12/21/22.
 //
 //
 
@@ -18,6 +18,9 @@ extension History {
 
     @NSManaged public var date: Date?
     @NSManaged public var routineTitle: String?
+    @NSManaged public var id: UUID?
+    @NSManaged public var totalWorkouts: Int16
+    @NSManaged public var totalSets: Int16
     @NSManaged public var workouts: NSSet?
 
 }
