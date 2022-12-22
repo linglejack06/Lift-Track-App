@@ -16,7 +16,7 @@ struct SubRoutineView: View {
     var routine: FetchedResults<Routine>.Element
     var body: some View {
         List {
-            ForEach(routine.workoutList) { workout in
+            ForEach(routine.workouts) { workout in
                 HStack {
                     Text(workout.workoutName)
                     Spacer()

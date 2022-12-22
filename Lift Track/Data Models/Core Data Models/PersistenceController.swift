@@ -4,7 +4,7 @@
 //
 //  Created by Jack Lingle on 12/15/22.
 //
-
+import Foundation
 import CoreData
 
 class PersistenceController: ObservableObject {
@@ -52,4 +52,31 @@ class PersistenceController: ObservableObject {
         context.delete(object)
         save(context: context)
     }
+    
+    func addRoutine(title: String, totalSets: Int16, totalWorkouts: Int16, workouts: [Workout], context: NSManagedObjectContext) {
+        let routine = Routine(context: context)
+        routine.id = UUID()
+        routine.title = title
+        routine.totalSets = totalSets
+        routine.totalWorkouts = totalWorkouts
+        // iterates through array and adds to workout relationship at each time
+        for i in 0...workouts.count - 1 {
+            routine.addToWorkouts(workouts[i])
+        }
+        
+        save(context: context)
+    }
+    // TODO: find out more on how to use NSOrderedSet to avoid having to have a whole array stored in state
+    // Right Now whole array must be stored and then transferred to an ordered set to enter core data
+    func editRoutine(routine: Routine, title: String, totalSets: Int16, totalWorkouts: Int16, workouts: [Workout], context: NSManagedObjectContext) {
+        routine.title = title
+        routine.totalSets = totalSets
+        routine.totalWorkouts = totalWorkouts
+        for i in 0...workouts.count - 1 {
+            routine.addToWorkouts(workouts[i])
+        }
+        save(context: context)
+    }
+    //TODO: Create functions to add to history, workout, and sets to produce more modular code
+    // Should never have to add sets to the routine object as when the routine is started everything is sent to the history object instead
 }
