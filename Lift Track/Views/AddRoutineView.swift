@@ -10,24 +10,29 @@ import Combine
 import RealmSwift
 
 struct AddRoutineView: View {
-    @ObservedRealmObject var newRoutine: Routine
+    @Environment(\.managedObjectContext) var managedObjectContext
+    @State var newRoutine = Routine()
     @State var isNewWorkout: Bool = false
+    @State var title = ""
+    @State var totalWorkouts = 0
+    @State var totalSets = 0
     @State var sets: Int? = nil
     @State var workoutName: String = ""
     @State var weightUnit: WeightUnitOptions = .pounds
-    @State var newWorkout = SubRoutine()
+    @State var newWorkout = Workout()
     var body: some View {
+        // Once entire form is submitted the routine must be added to the core data 
            Form {
                 Section(header: Text("Routine")) {
-                    TextField("Workout Title", text: $newRoutine.title)
+                    TextField("Workout Title", text: $title)
                     HStack {
                         Text("Total Workouts:")
-                        TextField("Total Workouts", value: $newRoutine.totalWorkouts, formatter: NumberFormatter())
+                        TextField("Total Workouts", value: $totalWorkouts, formatter: NumberFormatter())
                             .keyboardType(.numberPad)
                     }
                     HStack {
                         Text("Total Sets:")
-                        TextField("Total Sets", value: $newRoutine.totalSets, formatter: NumberFormatter())
+                        TextField("Total Sets", value: $totalSets, formatter: NumberFormatter())
                             .keyboardType(.numberPad)
                     }
                 }
@@ -46,8 +51,7 @@ struct AddRoutineView: View {
                    NewWorkoutView(workout: newWorkout)
                        .padding()
                    Button("Add To Routine") {
-                       $newRoutine.workoutList.append(newWorkout)
-                       newWorkout = SubRoutine()
+                       // When add to routine is clicked, set all workout view values to the new workout and add it to the new routine
                    }
                }
             }

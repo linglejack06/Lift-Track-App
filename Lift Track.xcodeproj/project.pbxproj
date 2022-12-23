@@ -11,14 +11,15 @@
 		5C59EC98294B92CC003E6259 /* RoutineModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5C59EC96294B92CC003E6259 /* RoutineModel.xcdatamodeld */; };
 		5C59EC9D294B9425003E6259 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C59EC9C294B9425003E6259 /* PersistenceController.swift */; };
 		5C5FEFDA292722610080BF47 /* NewWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5FEFD9292722610080BF47 /* NewWorkoutView.swift */; };
-		5C7D18222951F23B008C07D5 /* History+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7D181A2951F23B008C07D5 /* History+CoreDataClass.swift */; };
-		5C7D18232951F23B008C07D5 /* History+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7D181B2951F23B008C07D5 /* History+CoreDataProperties.swift */; };
-		5C7D18242951F23B008C07D5 /* Set+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7D181C2951F23B008C07D5 /* Set+CoreDataClass.swift */; };
-		5C7D18252951F23B008C07D5 /* Set+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7D181D2951F23B008C07D5 /* Set+CoreDataProperties.swift */; };
-		5C7D18262951F23B008C07D5 /* Routine+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7D181E2951F23B008C07D5 /* Routine+CoreDataClass.swift */; };
-		5C7D18272951F23B008C07D5 /* Routine+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7D181F2951F23B008C07D5 /* Routine+CoreDataProperties.swift */; };
-		5C7D18282951F23B008C07D5 /* Workout+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7D18202951F23B008C07D5 /* Workout+CoreDataClass.swift */; };
-		5C7D18292951F23B008C07D5 /* Workout+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7D18212951F23B008C07D5 /* Workout+CoreDataProperties.swift */; };
+		5C86007629566CC600D8731E /* WeightUnitOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C86007529566CC600D8731E /* WeightUnitOptions.swift */; };
+		5C86007F2956736B00D8731E /* Set+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8600772956736B00D8731E /* Set+CoreDataClass.swift */; };
+		5C8600802956736B00D8731E /* Set+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8600782956736B00D8731E /* Set+CoreDataProperties.swift */; };
+		5C8600812956736B00D8731E /* Routine+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8600792956736B00D8731E /* Routine+CoreDataClass.swift */; };
+		5C8600822956736B00D8731E /* Routine+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C86007A2956736B00D8731E /* Routine+CoreDataProperties.swift */; };
+		5C8600832956736B00D8731E /* History+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C86007B2956736B00D8731E /* History+CoreDataClass.swift */; };
+		5C8600842956736B00D8731E /* History+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C86007C2956736B00D8731E /* History+CoreDataProperties.swift */; };
+		5C8600852956736B00D8731E /* Workout+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C86007D2956736B00D8731E /* Workout+CoreDataClass.swift */; };
+		5C8600862956736B00D8731E /* Workout+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C86007E2956736B00D8731E /* Workout+CoreDataProperties.swift */; };
 		5CD29548291496B0002242E3 /* Lift_TrackApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD29547291496B0002242E3 /* Lift_TrackApp.swift */; };
 		5CD2954A291496B0002242E3 /* RoutineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD29549291496B0002242E3 /* RoutineView.swift */; };
 		5CD2954C291496B2002242E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CD2954B291496B2002242E3 /* Assets.xcassets */; };
@@ -56,14 +57,15 @@
 		5C59EC97294B92CC003E6259 /* RoutineModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RoutineModel.xcdatamodel; sourceTree = "<group>"; };
 		5C59EC9C294B9425003E6259 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		5C5FEFD9292722610080BF47 /* NewWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWorkoutView.swift; sourceTree = "<group>"; };
-		5C7D181A2951F23B008C07D5 /* History+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "History+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		5C7D181B2951F23B008C07D5 /* History+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "History+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
-		5C7D181C2951F23B008C07D5 /* Set+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Set+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		5C7D181D2951F23B008C07D5 /* Set+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Set+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
-		5C7D181E2951F23B008C07D5 /* Routine+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Routine+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		5C7D181F2951F23B008C07D5 /* Routine+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Routine+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
-		5C7D18202951F23B008C07D5 /* Workout+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Workout+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		5C7D18212951F23B008C07D5 /* Workout+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Workout+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		5C86007529566CC600D8731E /* WeightUnitOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightUnitOptions.swift; sourceTree = "<group>"; };
+		5C8600772956736B00D8731E /* Set+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Set+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		5C8600782956736B00D8731E /* Set+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Set+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		5C8600792956736B00D8731E /* Routine+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Routine+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		5C86007A2956736B00D8731E /* Routine+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Routine+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		5C86007B2956736B00D8731E /* History+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "History+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		5C86007C2956736B00D8731E /* History+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "History+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		5C86007D2956736B00D8731E /* Workout+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Workout+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		5C86007E2956736B00D8731E /* Workout+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Workout+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		5CD29544291496B0002242E3 /* Lift Track.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lift Track.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CD29547291496B0002242E3 /* Lift_TrackApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lift_TrackApp.swift; sourceTree = "<group>"; };
 		5CD29549291496B0002242E3 /* RoutineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineView.swift; sourceTree = "<group>"; };
@@ -111,6 +113,14 @@
 		5C59EC99294B9324003E6259 /* Core Data Models */ = {
 			isa = PBXGroup;
 			children = (
+				5C8600772956736B00D8731E /* Set+CoreDataClass.swift */,
+				5C8600782956736B00D8731E /* Set+CoreDataProperties.swift */,
+				5C8600792956736B00D8731E /* Routine+CoreDataClass.swift */,
+				5C86007A2956736B00D8731E /* Routine+CoreDataProperties.swift */,
+				5C86007B2956736B00D8731E /* History+CoreDataClass.swift */,
+				5C86007C2956736B00D8731E /* History+CoreDataProperties.swift */,
+				5C86007D2956736B00D8731E /* Workout+CoreDataClass.swift */,
+				5C86007E2956736B00D8731E /* Workout+CoreDataProperties.swift */,
 				5C59EC96294B92CC003E6259 /* RoutineModel.xcdatamodeld */,
 				5C59EC9C294B9425003E6259 /* PersistenceController.swift */,
 			);
@@ -177,14 +187,7 @@
 		5CD2957229149C7C002242E3 /* Data Models */ = {
 			isa = PBXGroup;
 			children = (
-				5C7D181A2951F23B008C07D5 /* History+CoreDataClass.swift */,
-				5C7D181B2951F23B008C07D5 /* History+CoreDataProperties.swift */,
-				5C7D181C2951F23B008C07D5 /* Set+CoreDataClass.swift */,
-				5C7D181D2951F23B008C07D5 /* Set+CoreDataProperties.swift */,
-				5C7D181E2951F23B008C07D5 /* Routine+CoreDataClass.swift */,
-				5C7D181F2951F23B008C07D5 /* Routine+CoreDataProperties.swift */,
-				5C7D18202951F23B008C07D5 /* Workout+CoreDataClass.swift */,
-				5C7D18212951F23B008C07D5 /* Workout+CoreDataProperties.swift */,
+				5C86007529566CC600D8731E /* WeightUnitOptions.swift */,
 				5C59EC99294B9324003E6259 /* Core Data Models */,
 				5CD2957E2914A19E002242E3 /* Hierarchy.md */,
 			);
@@ -342,24 +345,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C7D18262951F23B008C07D5 /* Routine+CoreDataClass.swift in Sources */,
 				5CD2959029183465002242E3 /* CardView.swift in Sources */,
 				5C5067082948B73D009E5BEE /* StartRoutineView.swift in Sources */,
-				5C7D18252951F23B008C07D5 /* Set+CoreDataProperties.swift in Sources */,
+				5C8600802956736B00D8731E /* Set+CoreDataProperties.swift in Sources */,
 				5CD295942919FA00002242E3 /* EditWorkoutView.swift in Sources */,
-				5C7D18272951F23B008C07D5 /* Routine+CoreDataProperties.swift in Sources */,
+				5C86007629566CC600D8731E /* WeightUnitOptions.swift in Sources */,
 				5CD2959229183625002242E3 /* SubRoutineView.swift in Sources */,
-				5C7D18242951F23B008C07D5 /* Set+CoreDataClass.swift in Sources */,
-				5C7D18222951F23B008C07D5 /* History+CoreDataClass.swift in Sources */,
+				5C8600842956736B00D8731E /* History+CoreDataProperties.swift in Sources */,
 				5C5FEFDA292722610080BF47 /* NewWorkoutView.swift in Sources */,
+				5C8600832956736B00D8731E /* History+CoreDataClass.swift in Sources */,
+				5C86007F2956736B00D8731E /* Set+CoreDataClass.swift in Sources */,
+				5C8600812956736B00D8731E /* Routine+CoreDataClass.swift in Sources */,
 				5CD2954A291496B0002242E3 /* RoutineView.swift in Sources */,
 				5C59EC98294B92CC003E6259 /* RoutineModel.xcdatamodeld in Sources */,
+				5C8600862956736B00D8731E /* Workout+CoreDataProperties.swift in Sources */,
+				5C8600822956736B00D8731E /* Routine+CoreDataProperties.swift in Sources */,
 				5CD295A0291B4776002242E3 /* AddRoutineView.swift in Sources */,
-				5C7D18282951F23B008C07D5 /* Workout+CoreDataClass.swift in Sources */,
 				5C59EC9D294B9425003E6259 /* PersistenceController.swift in Sources */,
-				5C7D18232951F23B008C07D5 /* History+CoreDataProperties.swift in Sources */,
+				5C8600852956736B00D8731E /* Workout+CoreDataClass.swift in Sources */,
 				5CD29548291496B0002242E3 /* Lift_TrackApp.swift in Sources */,
-				5C7D18292951F23B008C07D5 /* Workout+CoreDataProperties.swift in Sources */,
 				5CD295962919FB27002242E3 /* WorkoutListItemView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

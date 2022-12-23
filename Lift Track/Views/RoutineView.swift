@@ -24,6 +24,15 @@ struct RoutineView: View {
                     }
                 }
             }
+            // creates plus icon to go to new routine view
+            // alternatively could be made into a sheet that pops up when clicked
+            .toolbar {
+                ToolbarItem(placement: ToolbarItemPlacement.navigationBarTrailing) {
+                    NavigationLink(destination: AddRoutineView()) {
+                        Image(systemName: "plus")
+                    }
+                }
+            }
         }
     }
 }

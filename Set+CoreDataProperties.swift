@@ -2,7 +2,7 @@
 //  Set+CoreDataProperties.swift
 //  Lift Track
 //
-//  Created by Jack Lingle on 12/21/22.
+//  Created by Jack Lingle on 12/23/22.
 //
 //
 

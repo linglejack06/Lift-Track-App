@@ -1,20 +1,16 @@
 //
-//  weightUnitOptions.swift
+//  WeightUnitOptions.swift
 //  Lift Track
 //
-//  Created by Jack Lingle on 11/9/22.
+//  Created by Jack Lingle on 12/23/22.
 //
 
 import Foundation
-import RealmSwift
-import Realm
-import SwiftUI
+import CoreData
 
-enum WeightUnitOptions: String, PersistableEnum, CaseIterable, Equatable  {
+enum WeightUnitOptions: ObservableObject {
     case pounds = "lbs"
     case poundsPerSide = "lbs per side"
     case kilograms = "kg"
     case kilogramsPerSide = "kg per side"
-    
-    var localizedName: LocalizedStringKey { LocalizedStringKey(rawValue) }
 }

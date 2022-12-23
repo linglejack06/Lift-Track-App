@@ -53,30 +53,42 @@ class PersistenceController: ObservableObject {
         save(context: context)
     }
     
-    func addRoutine(title: String, totalSets: Int16, totalWorkouts: Int16, workouts: [Workout], context: NSManagedObjectContext) {
+    func addRoutine(title: String, totalSets: Int16, totalWorkouts: Int16, workouts: NSOrderedSet, context: NSManagedObjectContext) {
         let routine = Routine(context: context)
         routine.id = UUID()
         routine.title = title
         routine.totalSets = totalSets
         routine.totalWorkouts = totalWorkouts
-        // iterates through array and adds to workout relationship at each time
-        for i in 0...workouts.count - 1 {
-            routine.addToWorkouts(workouts[i])
-        }
+        routine.addToWorkouts(workouts)
         
         save(context: context)
     }
-    // TODO: find out more on how to use NSOrderedSet to avoid having to have a whole array stored in state
-    // Right Now whole array must be stored and then transferred to an ordered set to enter core data
-    func editRoutine(routine: Routine, title: String, totalSets: Int16, totalWorkouts: Int16, workouts: [Workout], context: NSManagedObjectContext) {
+
+    func editRoutine(routine: Routine, title: String, totalSets: Int16, totalWorkouts: Int16, workouts: NSOrderedSet, context: NSManagedObjectContext) {
         routine.title = title
         routine.totalSets = totalSets
         routine.totalWorkouts = totalWorkouts
-        for i in 0...workouts.count - 1 {
-            routine.addToWorkouts(workouts[i])
-        }
+        routine.addToWorkouts(workouts)
         save(context: context)
     }
-    //TODO: Create functions to add to history, workout, and sets to produce more modular code
+    //TODO: Create function for workout to produce more modular code
+    func addHistory(routineTitle: String, totalWorkouts: Int16, totalSets: Int16, workouts: NSSet, context: NSManagedObjectContext) {
+        let history = History(context: context)
+        history.routineTitle = routineTitle
+        history.id = UUID()
+        history.date = Date()
+        history.totalWorkouts = totalWorkouts
+        history.totalSets = totalSets
+        history.addToWorkouts(workouts)
+        save(context: context)
+    }
+    //TODO: Add conditional to check if objects in NSSet are already a part of the history object, if so they should not be added again
+    func editHistory(history: History, routineTitle: String, totalWorkouts: Int16, totalSets: Int16, workouts: NSSet, context: NSManagedObjectContext) {
+        history.routineTitle = routineTitle
+        history.totalSets = totalSets
+        history.totalWorkouts = totalWorkouts
+        history.addToWorkouts(workouts)
+        save(context: context)
+    }
     // Should never have to add sets to the routine object as when the routine is started everything is sent to the history object instead
 }
