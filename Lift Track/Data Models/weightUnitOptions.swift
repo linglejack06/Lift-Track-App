@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 
-enum WeightUnitOptions: ObservableObject {
+enum WeightUnitOptions: ObservableObject, String, CaseIterable {
     case pounds = "lbs"
     case poundsPerSide = "lbs per side"
     case kilograms = "kg"

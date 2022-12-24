@@ -72,7 +72,7 @@ class PersistenceController: ObservableObject {
         save(context: context)
     }
     //TODO: Create function for workout to produce more modular code
-    func addHistory(routineTitle: String, totalWorkouts: Int16, totalSets: Int16, workouts: NSSet, context: NSManagedObjectContext) {
+    func addHistory(routineTitle: String, totalWorkouts: Int16, totalSets: Int16, workouts: NSOrderedSet, context: NSManagedObjectContext) {
         let history = History(context: context)
         history.routineTitle = routineTitle
         history.id = UUID()
@@ -83,7 +83,7 @@ class PersistenceController: ObservableObject {
         save(context: context)
     }
     //TODO: Add conditional to check if objects in NSSet are already a part of the history object, if so they should not be added again
-    func editHistory(history: History, routineTitle: String, totalWorkouts: Int16, totalSets: Int16, workouts: NSSet, context: NSManagedObjectContext) {
+    func editHistory(history: History, routineTitle: String, totalWorkouts: Int16, totalSets: Int16, workouts: NSOrderedSet, context: NSManagedObjectContext) {
         history.routineTitle = routineTitle
         history.totalSets = totalSets
         history.totalWorkouts = totalWorkouts
@@ -91,4 +91,5 @@ class PersistenceController: ObservableObject {
         save(context: context)
     }
     // Should never have to add sets to the routine object as when the routine is started everything is sent to the history object instead
+    
 }
