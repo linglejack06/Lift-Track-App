@@ -37,7 +37,8 @@ struct AddRoutineView: View {
                     }
                 }
                Section(header: Text("Workouts")) {
-                   ForEach(newRoutine.workoutList) { workout in
+                   //change to iterating through a temporary array, so once all workouts are added and save is pressed, then the workout objects are added to data store
+                   ForEach(newRoutine.workouts) { workout in
                        HStack {
                            Text(workout.workoutName)
                            Spacer()
@@ -45,7 +46,6 @@ struct AddRoutineView: View {
                            Text("\(String(workout.sets)) Sets")
                        }
                    }
-                   .onDelete(perform: $newRoutine.workoutList.remove)
                }
                VStack {
                    NewWorkoutView(workout: newWorkout)
