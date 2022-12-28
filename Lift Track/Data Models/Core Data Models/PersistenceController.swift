@@ -91,5 +91,20 @@ class PersistenceController: ObservableObject {
         save(context: context)
     }
     // Should never have to add sets to the routine object as when the routine is started everything is sent to the history object instead
+    //TODO: add a function that takes just the routine object and initiates everything based on that. This allows for less inputs and cleaner code. Also makes it easier in add routine view hopefully
+    func addRoutineObject(routine: Routine, context: NSManagedObjectContext) {
+        let routineStore = Routine(context: context)
+        routineStore.title = routine.title
+        routineStore.id = UUID()
+        routineStore.totalSets = routine.totalSets
+        routineStore.totalWorkouts = routine.totalWorkouts
+        // unwrap optional, if it cant be unwrapped ie there is no workouts, then print an error
+        if let workouts = routine.workouts {
+            routineStore.addToWorkouts(workouts)
+        } else {
+            print("Error: No workouts added to Routine")
+        }
+        save(context: context)
+    }
     
 }
