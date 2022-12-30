@@ -53,7 +53,7 @@ class PersistenceController: ObservableObject {
         save(context: context)
     }
     
-    func addRoutine(title: String, totalSets: Int16, totalWorkouts: Int16, workouts: NSOrderedSet, context: NSManagedObjectContext) {
+    func addRoutine(title: String, totalSets: Int16, totalWorkouts: Int16, workouts: NSSet, context: NSManagedObjectContext) {
         let routine = Routine(context: context)
         routine.id = UUID()
         routine.title = title
@@ -64,7 +64,7 @@ class PersistenceController: ObservableObject {
         save(context: context)
     }
 
-    func editRoutine(routine: Routine, title: String, totalSets: Int16, totalWorkouts: Int16, workouts: NSOrderedSet, context: NSManagedObjectContext) {
+    func editRoutine(routine: Routine, title: String, totalSets: Int16, totalWorkouts: Int16, workouts: NSSet, context: NSManagedObjectContext) {
         routine.title = title
         routine.totalSets = totalSets
         routine.totalWorkouts = totalWorkouts
@@ -72,7 +72,7 @@ class PersistenceController: ObservableObject {
         save(context: context)
     }
     //TODO: Create function for workout to produce more modular code
-    func addHistory(routineTitle: String, totalWorkouts: Int16, totalSets: Int16, workouts: NSOrderedSet, context: NSManagedObjectContext) {
+    func addHistory(routineTitle: String, totalWorkouts: Int16, totalSets: Int16, workouts: NSSet, context: NSManagedObjectContext) {
         let history = History(context: context)
         history.routineTitle = routineTitle
         history.id = UUID()
@@ -83,7 +83,7 @@ class PersistenceController: ObservableObject {
         save(context: context)
     }
     //TODO: Add conditional to check if objects in NSSet are already a part of the history object, if so they should not be added again
-    func editHistory(history: History, routineTitle: String, totalWorkouts: Int16, totalSets: Int16, workouts: NSOrderedSet, context: NSManagedObjectContext) {
+    func editHistory(history: History, routineTitle: String, totalWorkouts: Int16, totalSets: Int16, workouts: NSSet, context: NSManagedObjectContext) {
         history.routineTitle = routineTitle
         history.totalSets = totalSets
         history.totalWorkouts = totalWorkouts

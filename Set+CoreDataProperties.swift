@@ -2,7 +2,7 @@
 //  Set+CoreDataProperties.swift
 //  Lift Track
 //
-//  Created by Jack Lingle on 12/23/22.
+//  Created by Jack Lingle on 12/29/22.
 //
 //
 
@@ -19,6 +19,7 @@ extension Set {
     @NSManaged public var notes: String?
     @NSManaged public var reps: Int16
     @NSManaged public var weight: Int16
+    @NSManaged public var setNumber: Int16
     @NSManaged public var workout: Workout?
 
 }
