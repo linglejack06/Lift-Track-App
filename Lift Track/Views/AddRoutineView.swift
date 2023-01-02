@@ -21,6 +21,7 @@ struct AddRoutineView: View {
     @State var workoutName: String = ""
     @State var weightUnit: WeightUnitOptions = .pounds
     @State var newWorkout = Workout()
+    @State var workoutNumber = 0
     var body: some View {
         // Once entire form is submitted the routine must be added to the core data 
         Form {
@@ -40,9 +41,9 @@ struct AddRoutineView: View {
         }
         Section(header: Text("Workouts")) {
            //change to iterating through a temporary array, so once all workouts are added and save is pressed, then the workout objects are added to data store
-            ForEach(newRoutine.workouts) { workout in
+            ForEach(newRoutine.workoutArray) { workout in
                HStack {
-                   Text(workout.workoutName)
+                   Text(workout.workoutName ?? "")
                    Spacer()
                        .frame(width: 40)
                    Text("\(String(workout.sets)) Sets")
@@ -53,13 +54,15 @@ struct AddRoutineView: View {
                    .padding()
                Button("Add To Routine") {
                    // When add to routine is clicked, set all workout view values to the new workout and add it to the new routine
+                   newWorkout.workoutNumber = Int16(workoutNumber)
+                   workoutNumber += 1
                    newRoutine.addToWorkouts(newWorkout)
                    // once added, the workout is reset to be able to add additional workouts
                    newWorkout = Workout()
                }
            }
        }
-       .navigationTitle (newRoutine.title ?? "New Routine")
+       .navigationTitle (newRoutine.wrappedTitle)
        .toolbar {
            ToolbarItem(placement: ToolbarItemPlacement.navigationBarTrailing) {
                Button("Save") {

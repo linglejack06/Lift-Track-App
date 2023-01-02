@@ -18,6 +18,7 @@ extension Workout {
 
     @NSManaged public var sets: Int16
     @NSManaged public var workoutName: String?
+    // zero indexed workout number, like sorting through array
     @NSManaged public var workoutNumber: Int16
     @NSManaged public var history: History?
     @NSManaged public var routines: Routine?

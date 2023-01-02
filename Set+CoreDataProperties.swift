@@ -19,6 +19,7 @@ extension Set {
     @NSManaged public var notes: String?
     @NSManaged public var reps: Int16
     @NSManaged public var weight: Int16
+    // zero indexed set number, like sorting through array
     @NSManaged public var setNumber: Int16
     @NSManaged public var workout: Workout?
 
