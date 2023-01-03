@@ -13,20 +13,6 @@ class PersistenceController: ObservableObject {
     // initializes storage for app
     let container = NSPersistentContainer(name: "RoutineModel")
     
-    //configuration for previews
-    static var preview: PersistenceController = {
-        let controller = PersistenceController(inMemory: true)
-        
-        for _ in 0..<10 {
-            let routine = Routine(context: controller.container.viewContext)
-            routine.title = "Chest"
-            routine.totalSets = 40
-            routine.totalWorkouts = 5
-        }
-        
-        return controller
-    }()
-    
     // init to load core data, optionally in memory for previews
     init(inMemory: Bool = false) {
         if inMemory {

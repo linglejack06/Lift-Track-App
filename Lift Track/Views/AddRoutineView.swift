@@ -7,12 +7,12 @@
 
 import SwiftUI
 import Combine
-import RealmSwift
+import CoreData
 
 struct AddRoutineView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @Environment(\.dismiss) var dismiss
-    @State var newRoutine = Routine()
+    @State var newRoutine = Routine(context: PersistenceController().container.viewContext)
     @State var isNewWorkout: Bool = false
     @State var title = ""
     @State var totalWorkouts = 0
@@ -20,7 +20,7 @@ struct AddRoutineView: View {
     @State var sets: Int? = nil
     @State var workoutName: String = ""
     @State var weightUnit: WeightUnitOptions = .pounds
-    @State var newWorkout = Workout()
+    @State var newWorkout = Workout(context: PersistenceController().container.viewContext)
     @State var workoutNumber = 0
     var body: some View {
         // Once entire form is submitted the routine must be added to the core data 
@@ -41,7 +41,7 @@ struct AddRoutineView: View {
         }
         Section(header: Text("Workouts")) {
            //change to iterating through a temporary array, so once all workouts are added and save is pressed, then the workout objects are added to data store
-            ForEach(newRoutine.workoutArray) { workout in
+            ForEach(newRoutine.workoutArray, id: \.self) { workout in
                HStack {
                    Text(workout.workoutName ?? "")
                    Spacer()

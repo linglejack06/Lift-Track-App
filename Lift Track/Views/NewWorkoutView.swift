@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import RealmSwift
+import CoreData
 
 struct NewWorkoutView: View {
     @Environment(\.managedObjectContext) var managedObjectContext

@@ -9,8 +9,6 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
-    @State var isPresentingNewRoutine = false
-    @State private var newRoutine = Routine()
     // adds the managed object so fetch requests can be performed
     @Environment(\.managedObjectContext) var managedObjectContext
     // fetches the routines stored in the core data model
@@ -34,7 +32,7 @@ struct ContentView: View {
                 }
                 ToolbarItem(placement: ToolbarItemPlacement.bottomBar) {
                     NavigationLink(destination: HistoryView()) {
-                        Image(systemName: "Calendar")
+                        Image(systemName: "plus")
                     }
                 }
             }
