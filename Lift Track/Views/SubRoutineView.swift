@@ -16,15 +16,15 @@ struct SubRoutineView: View {
     var routine: FetchedResults<Routine>.Element
     var body: some View {
         List {
-            ForEach(routine.workouts) { workout in
+            ForEach(routine.workoutArray) { workout in
                 HStack {
-                    Text(workout.workoutName)
+                    Text(workout.workoutName ?? "Unnamed Workout")
                     Spacer()
                     Text("\(String(workout.sets)) sets")
                 }
             }
         }
-        .navigationTitle("💪\(routine.title)💪")
+        .navigationTitle("💪\(routine.wrappedTitle)💪")
         //TODO: add edit button to be able to change title, add workouts, change workout names, and add sets.
         //TODO: add start function to iterate through each set and workout in the routine
         .toolbar {
@@ -39,6 +39,6 @@ struct SubRoutineView: View {
 
 struct SubRoutineView_Previews: PreviewProvider {
     static var previews: some View {
-        SubRoutineView(routine: Routine(title: "Chest and Back", totalSets: 4, totalWorkouts: 1))
+        SubRoutineView(routine: Routine())
     }
 }

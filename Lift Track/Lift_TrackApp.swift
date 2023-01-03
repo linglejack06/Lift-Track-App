@@ -15,9 +15,9 @@ struct Lift_TrackApp: SwiftUI.App {
     @StateObject private var persistenceController = PersistenceController()
     @Environment(\.scenePhase) var scenePhase
     var body: some Scene {
-        WindowGroup<RoutineView> {
-            RoutineView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext) as! RoutineView
+        WindowGroup {
+            ContentView()
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
         .onChange(of: scenePhase) { _ in
             persistenceController.save(context: persistenceController.container.viewContext)

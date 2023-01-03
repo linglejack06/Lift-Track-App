@@ -8,7 +8,7 @@
 import SwiftUI
 import CoreData
 
-struct RoutineView: View {
+struct ContentView: View {
     @State var isPresentingNewRoutine = false
     @State private var newRoutine = Routine()
     // adds the managed object so fetch requests can be performed
@@ -32,13 +32,18 @@ struct RoutineView: View {
                         Image(systemName: "plus")
                     }
                 }
+                ToolbarItem(placement: ToolbarItemPlacement.bottomBar) {
+                    NavigationLink(destination: HistoryView()) {
+                        Image(systemName: "Calendar")
+                    }
+                }
             }
         }
     }
 }
-struct RoutineView_Previews: PreviewProvider {
+struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        RoutineView()
+        ContentView()
     }
 }
 
