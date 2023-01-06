@@ -12,15 +12,15 @@ import CoreData
 struct AddRoutineView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @Environment(\.dismiss) var dismiss
-    @State var newRoutine = Routine(context: PersistenceController().container.viewContext)
-    @State var isNewWorkout: Bool = false
+    //@State var newRoutine = Routine()
+    @State var workouts: [Workout] = []
     @State var title = ""
     @State var totalWorkouts = 0
     @State var totalSets = 0
-    @State var sets: Int? = nil
+    @State var sets: Int = 0
     @State var workoutName: String = ""
     @State var weightUnit: WeightUnitOptions = .pounds
-    @State var newWorkout = Workout(context: PersistenceController().container.viewContext)
+    //@State var newWorkout = Workout()
     @State var workoutNumber = 0
     var body: some View {
         // Once entire form is submitted the routine must be added to the core data 
@@ -41,7 +41,7 @@ struct AddRoutineView: View {
         }
         Section(header: Text("Workouts")) {
            //change to iterating through a temporary array, so once all workouts are added and save is pressed, then the workout objects are added to data store
-            ForEach(newRoutine.workoutArray, id: \.self) { workout in
+            ForEach(workouts, id: \.self) { workout in
                HStack {
                    Text(workout.workoutName ?? "")
                    Spacer()
@@ -50,24 +50,32 @@ struct AddRoutineView: View {
                }
            }
            VStack {
-               NewWorkoutView(newWorkout: $newWorkout)
+               NewWorkoutView(workoutName: $workoutName, sets: $sets)
                    .padding()
                Button("Add To Routine") {
                    // When add to routine is clicked, set all workout view values to the new workout and add it to the new routine
+                   var newWorkout = Workout(context: managedObjectContext)
                    newWorkout.workoutNumber = Int16(workoutNumber)
                    workoutNumber += 1
-                   newRoutine.addToWorkouts(newWorkout)
+                   newWorkout.workoutName = workoutName
+                   newWorkout.sets = Int16(sets)
+                   workouts.append(newWorkout)
+                   //newRoutine.addToWorkouts(newWorkout)
                    // once added, the workout is reset to be able to add additional workouts
-                   newWorkout = Workout()
+                   newWorkout = Workout(context: managedObjectContext)
+                   workoutName = ""
+                   sets = 0
                }
            }
        }
-       .navigationTitle (newRoutine.wrappedTitle)
+        .navigationTitle (title != "" ? title : "New Routine")
        .toolbar {
            ToolbarItem(placement: ToolbarItemPlacement.navigationBarTrailing) {
                Button("Save") {
+                   var newRoutine = Routine(context: managedObjectContext)
+                   let workoutSet = NSSet(array: workouts)
+                   newRoutine.addToWorkouts(workoutSet)
                    PersistenceController().addRoutineObject(routine: newRoutine, context: managedObjectContext)
-                   newRoutine = Routine()
                    // dismiss should send back to root view (in this case routine view
                    // like clicking back but can also save the changes
                    dismiss()
@@ -80,6 +88,6 @@ struct AddRoutineView: View {
 
 struct AddRoutineView_Previews: PreviewProvider {
     static var previews: some View {
-        AddRoutineView(newRoutine: Routine())
+        AddRoutineView()
     }
 }

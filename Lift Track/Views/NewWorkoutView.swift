@@ -11,9 +11,8 @@ import CoreData
 struct NewWorkoutView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @State var weightUnit: WeightUnitOptions = WeightUnitOptions.pounds
-    @Binding var newWorkout: Workout
-    @State var workoutName = ""
-    @State var sets = 0
+    @Binding var workoutName: String
+    @Binding var sets: Int
     var body: some View {
             VStack {
                 TextField("New Workout", text: $workoutName, axis: .vertical)
@@ -29,6 +28,6 @@ struct NewWorkoutView: View {
 
 struct NewWorkoutView_Previews: PreviewProvider {
     static var previews: some View {
-        NewWorkoutView(newWorkout: .constant(Workout()))
+        NewWorkoutView(workoutName: .constant(""), sets: .constant(0))
     }
 }
