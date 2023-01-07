@@ -47,6 +47,11 @@ struct AddRoutineView: View {
                    let workoutSet = NSSet(array: workouts)
                    newRoutine.addToWorkouts(workoutSet)
                    newRoutine.id = UUID()
+                   do {
+                       try managedObjectContext.save()
+                   } catch {
+                       print("Error: failed to save routine")
+                   }
                    // dismiss should send back to root view (in this case routine view
                    // like clicking back but can also save the changes
                    dismiss()
