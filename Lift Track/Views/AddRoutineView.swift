@@ -39,6 +39,20 @@ struct AddRoutineView: View {
                 }
             }
         }
+        .navigationTitle (title != "" ? title : "New Routine")
+       .toolbar {
+           ToolbarItem(placement: ToolbarItemPlacement.navigationBarTrailing) {
+               Button("Save") {
+                   let newRoutine = Routine(context: managedObjectContext)
+                   let workoutSet = NSSet(array: workouts)
+                   newRoutine.addToWorkouts(workoutSet)
+                   newRoutine.id = UUID()
+                   // dismiss should send back to root view (in this case routine view
+                   // like clicking back but can also save the changes
+                   dismiss()
+               }
+           }
+       }
         Section(header: Text("Workouts")) {
            //change to iterating through a temporary array, so once all workouts are added and save is pressed, then the workout objects are added to data store
             ForEach(workouts, id: \.self) { workout in
@@ -63,22 +77,13 @@ struct AddRoutineView: View {
                    //newRoutine.addToWorkouts(newWorkout)
                    // once added, the workout is reset to be able to add additional workouts
                    newWorkout = Workout(context: managedObjectContext)
+                   do {
+                       try managedObjectContext.save()
+                   } catch {
+                       print("Error: Workout could not be saved")
+                   }
                    workoutName = ""
                    sets = 0
-               }
-           }
-       }
-        .navigationTitle (title != "" ? title : "New Routine")
-       .toolbar {
-           ToolbarItem(placement: ToolbarItemPlacement.navigationBarTrailing) {
-               Button("Save") {
-                   var newRoutine = Routine(context: managedObjectContext)
-                   let workoutSet = NSSet(array: workouts)
-                   newRoutine.addToWorkouts(workoutSet)
-                   PersistenceController().addRoutineObject(routine: newRoutine, context: managedObjectContext)
-                   // dismiss should send back to root view (in this case routine view
-                   // like clicking back but can also save the changes
-                   dismiss()
                }
            }
        }
