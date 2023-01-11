@@ -93,4 +93,13 @@ class PersistenceController: ObservableObject {
         save(context: context)
     }
     
+    func createSet (weight: Int16, reps: Int16, setNumber: Int16, notes: String, context: NSManagedObjectContext) -> Set {
+        let set = Set(context: context)
+        set.weight = weight
+        set.reps = reps
+        set.setNumber = setNumber
+        set.notes = notes
+        return set
+    }
+    
 }

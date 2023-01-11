@@ -11,9 +11,11 @@ import CoreData
 
 struct StartRoutineView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
+    @Environment(\.dismiss) var dismiss
     var usedRoutine: FetchedResults<Routine>.Element
-    @State var entry = History()
-    @State var workout = Workout()
+    var controller = PersistenceController()
+    @State var workouts: [Workout] = []
+    @State var sets: [Set] = []
     @State var weight = ""
     @State var reps = ""
     @State var notes = ""
@@ -29,57 +31,58 @@ struct StartRoutineView: View {
         .navigationTitle("")
         .toolbar {
             ToolbarItem(placement: ToolbarItemPlacement.bottomBar) {
-                Button("Next") {
-                    if totalSets == 0 {
-                        //var entry = History(context: managedObjectContext)
-                    }
-                    if setNumber == 0 {
-                        let workout = Workout(context:managedObjectContext)
-                        workout.workoutName = usedRoutine.workoutArray[workoutNumber].workoutName
-                    }
-                    // adds the values to the set object and increases set number
-                    if let weight = Int16(weight), let reps = Int16(reps) {
-                        // add values to set object
-                        let set = Set(context: managedObjectContext)
-                        set.weight = weight
-                        set.reps = reps
-                        set.notes = notes
-                        set.setNumber = Int16(setNumber)
-                        workout.addToSetList(set)
-                        //has to manually save since it is not a function i wrote
-                        do {
-                            try managedObjectContext.save()
-                        } catch {
-                            print("Error: could not add set")
-                        }
-                        // add to set number
+                if setNumber != usedRoutine.workoutArray[workoutNumber].sets - 1 {
+                    Button("Next Set") {
+                        let set = controller.createSet(weight: Int16(weight) ?? 0, reps: Int16(reps) ?? 0, setNumber: Int16(setNumber), notes: notes, context: managedObjectContext)
+                        sets.append(set)
+                        weight = ""
+                        reps = ""
                         setNumber += 1
-                        // add to total sets
                         totalSets += 1
-                    }
-                    // only appends workout to the workout list once all sets have been added
-                    //reset set number to 0 to go to next workout
-                    if usedRoutine.workoutArray[workoutNumber].sets == workout.setArray.count {
-                        //add workout to history entry
-                        entry.addToWorkouts(workout)
                         do {
                             try managedObjectContext.save()
                         } catch {
-                            print("Error: Could not save workout")
+                            print("Error: Failed to add set")
                         }
+                    }
+                } else if totalSets == usedRoutine.totalSets {
+                    Button("Finish Routine") {
+                        let entry  = History(context: managedObjectContext)
+                        let workoutList = NSSet(array: workouts)
+                        entry.addToWorkouts(workoutList)
+                        workouts = []
+                    }
+                } else {
+                    Button("Next Workout") {
+                        //add last set to sets array
+                        let lastSet = controller.createSet(weight: Int16(weight) ?? 0, reps: Int16(reps) ?? 0, setNumber: Int16(setNumber), notes: notes, context: managedObjectContext)
+                        weight = ""
+                        reps = ""
+                        totalSets += 1
+                        // initialize workout object to add sets to
+                        let workout = Workout(context: managedObjectContext)
+                        workout.workoutNumber = Int16(workoutNumber)
+                        workout.sets = usedRoutine.workoutArray[workoutNumber].sets
+                        workout.workoutName = usedRoutine.workoutArray[workoutNumber].workoutName
+                        // create NSSet from array of sets
+                        let setsList = NSSet(array: sets)
+                        // add the NSSet to the relationship, has to be a set to work with core data relationships
+                        workout.addToSetList(setsList)
+                        // add workout to temp array to better work wtih conditionals
+                        // without doing this it results in variables named inside of conditionals that need to be used outside of them
+                        workouts.append(workout)
+                        // reinitialize sets to empty array to support next workout sets
+                        sets = []
+                        // reset set Number so each set can be added again
+                        setNumber = 0
+                        // add one to workout number so the workout name, etc. are from next workout not just the same workout
                         workoutNumber += 1
-                        workout = Workout(context: managedObjectContext)
+                        do {
+                            try managedObjectContext.save()
+                        } catch {
+                            print("Error: Failed to save workout to store")
+                        }
                     }
-                    entry.routineTitle = usedRoutine.title
-                    // append the entry to the realm once all sets have been added and all workouts by checking if the sets match
-                    if usedRoutine.totalSets == totalSets {
-                        
-                    }
-                    //set = Set()
-                    weight = ""
-                    reps = ""
-                    notes = ""
-                    
                 }
             }
         }
