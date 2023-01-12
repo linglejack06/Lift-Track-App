@@ -27,16 +27,6 @@ struct AddRoutineView: View {
         Form {
             Section(header: Text("Routine")) {
                 TextField("Workout Title", text: $title)
-                HStack {
-                    Text("Total Workouts:")
-                    TextField("Total Workouts", value: $totalWorkouts, formatter: NumberFormatter())
-                        .keyboardType(.numberPad)
-                }
-                HStack {
-                    Text("Total Sets:")
-                    TextField("Total Sets", value: $totalSets, formatter: NumberFormatter())
-                        .keyboardType(.numberPad)
-                }
             }
         }
         .navigationTitle (title != "" ? title : "New Routine")
@@ -45,6 +35,9 @@ struct AddRoutineView: View {
                Button("Save") {
                    let newRoutine = Routine(context: managedObjectContext)
                    let workoutSet = NSSet(array: workouts)
+                   newRoutine.title = title
+                   newRoutine.totalSets = Int16(totalSets)
+                   newRoutine.totalWorkouts = Int16(totalWorkouts)
                    newRoutine.addToWorkouts(workoutSet)
                    newRoutine.id = UUID()
                    do {
@@ -79,7 +72,8 @@ struct AddRoutineView: View {
                    newWorkout.workoutName = workoutName
                    newWorkout.sets = Int16(sets)
                    workouts.append(newWorkout)
-                   //newRoutine.addToWorkouts(newWorkout)
+                   totalWorkouts += 1
+                   totalSets += sets
                    // once added, the workout is reset to be able to add additional workouts
                    newWorkout = Workout(context: managedObjectContext)
                    do {

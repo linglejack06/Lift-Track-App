@@ -35,17 +35,11 @@ struct StartRoutineView: View {
                     Button("Next Set") {
                         let set = controller.createSet(weight: Int16(weight) ?? 0, reps: Int16(reps) ?? 0, setNumber: Int16(setNumber), notes: notes, context: managedObjectContext)
                         sets.append(set)
-                        weight = ""
-                        reps = ""
-                        setNumber += 1
-                        totalSets += 1
-                        do {
-                            try managedObjectContext.save()
-                        } catch {
-                            print("Error: Failed to add set")
-                        }
+                        reset()
+                        incSetNumAndTotalSet()
+                        save(context: managedObjectContext)
                     }
-                } else if totalSets == usedRoutine.totalSets {
+                } else if totalSets == usedRoutine.totalSets - 1 {
                     Button("Finish Routine") {
                         let entry  = History(context: managedObjectContext)
                         let workoutList = NSSet(array: workouts)
@@ -56,8 +50,8 @@ struct StartRoutineView: View {
                     Button("Next Workout") {
                         //add last set to sets array
                         let lastSet = controller.createSet(weight: Int16(weight) ?? 0, reps: Int16(reps) ?? 0, setNumber: Int16(setNumber), notes: notes, context: managedObjectContext)
-                        weight = ""
-                        reps = ""
+                        sets.append(lastSet)
+                        reset()
                         totalSets += 1
                         // initialize workout object to add sets to
                         let workout = Workout(context: managedObjectContext)
@@ -77,11 +71,7 @@ struct StartRoutineView: View {
                         setNumber = 0
                         // add one to workout number so the workout name, etc. are from next workout not just the same workout
                         workoutNumber += 1
-                        do {
-                            try managedObjectContext.save()
-                        } catch {
-                            print("Error: Failed to save workout to store")
-                        }
+                        save(context: managedObjectContext)
                     }
                 }
             }
