@@ -13,7 +13,6 @@ struct StartRoutineView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @Environment(\.dismiss) var dismiss
     var usedRoutine: FetchedResults<Routine>.Element
-    var controller = PersistenceController()
     @State var workouts: [Workout] = []
     @State var setsArray: [Set] = []
     @State var weight = ""
@@ -39,7 +38,7 @@ struct StartRoutineView: View {
                 if workoutNumber  != usedRoutine.totalWorkouts {
                     if setNumber != usedRoutine.workoutArray[workoutNumber].sets - 1 {
                         Button("Next Set") {
-                            let set = controller.createSet(weight: Int16(weight) ?? 0, reps: Int16(reps) ?? 0, setNumber: Int16(setNumber), notes: notes, context: managedObjectContext)
+                            let set = createSet(weight: Int16(weight) ?? 0, reps: Int16(reps) ?? 0, setNumber: Int16(setNumber), notes: notes, context: managedObjectContext)
                             setsArray.append(set)
                             reset()
                             incSetNumAndTotalSet()
@@ -48,12 +47,12 @@ struct StartRoutineView: View {
                     } else {
                         Button("Next Workout") {
                             //add last set to sets array
-                            let lastSet = controller.createSet(weight: Int16(weight) ?? 0, reps: Int16(reps) ?? 0, setNumber: Int16(setNumber), notes: notes, context: managedObjectContext)
+                            let lastSet = createSet(weight: Int16(weight) ?? 0, reps: Int16(reps) ?? 0, setNumber: Int16(setNumber), notes: notes, context: managedObjectContext)
                             setsArray.append(lastSet)
                             reset()
                             totalSets += 1
                             let routineWorkout = usedRoutine.workoutArray[workoutNumber]
-                            let workout = controller.createWorkout(workoutNumber: Int16(workoutNumber), sets: routineWorkout.sets, workoutName: routineWorkout.workoutName ?? "", setsArray: setsArray, context: managedObjectContext)
+                            let workout = createWorkout(workoutNumber: Int16(workoutNumber), sets: routineWorkout.sets, workoutName: routineWorkout.workoutName ?? "", setsArray: setsArray, context: managedObjectContext)
                             // add workout to temp array to better work wtih conditionals
                             // without doing this it results in variables named inside of conditionals that need to be used outside of them
                             workouts.append(workout)
@@ -69,8 +68,9 @@ struct StartRoutineView: View {
                 } else {
                     Button("Finish Routine") {
                         let workoutList = NSSet(array: workouts)
-                        controller.addHistory(routineTitle: usedRoutine.title ?? "", totalWorkouts: usedRoutine.totalWorkouts, totalSets: usedRoutine.totalSets, workouts: workoutList, context: managedObjectContext)
+                        addHistory(routineTitle: usedRoutine.title ?? "", totalWorkouts: usedRoutine.totalWorkouts, totalSets: usedRoutine.totalSets, workouts: workoutList, context: managedObjectContext)
                         workouts = []
+                        dismiss()
                     }
                 }
             }
