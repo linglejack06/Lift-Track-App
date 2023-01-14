@@ -73,7 +73,7 @@ struct AddRoutineView: View {
                    newWorkout.sets = Int16(sets)
                    workouts.append(newWorkout)
                    totalWorkouts += 1
-                   totalSets += sets
+                   totalSets += sets - 1
                    // once added, the workout is reset to be able to add additional workouts
                    newWorkout = Workout(context: managedObjectContext)
                    do {

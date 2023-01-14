@@ -102,6 +102,20 @@ class PersistenceController: ObservableObject {
         return set
     }
     
+    func createWorkout(workoutNumber: Int16, sets: Int16, workoutName: String, setsArray: [Set], context: NSManagedObjectContext) -> Workout {
+        //initialize workout object to add sets to
+        let workout = Workout(context: context)
+        workout.workoutNumber = workoutNumber
+        workout.sets = sets
+        workout.workoutNumber = workoutNumber
+        //create NSSet type from sets array
+        let setList = NSSet(array: setsArray)
+        // has to be type NSSet to work with core data relationships
+        workout.addToSetList(setList)
+        // return workout to a variable so it can be added to the workouts array
+        return workout
+    }
+    
 }
 
 
