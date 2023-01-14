@@ -30,6 +30,7 @@ struct StartRoutineView: View {
                 TextField("Notes: ", text: $notes, axis: .vertical)
             } else {
                 Text("All sets have been added")
+                Text(String(usedRoutine.totalSets))
             }
         }
         .navigationTitle("")
@@ -43,12 +44,6 @@ struct StartRoutineView: View {
                             reset()
                             incSetNumAndTotalSet()
                             save(context: managedObjectContext)
-                        }
-                    } else if totalSets == usedRoutine.totalSets {
-                        Button("Finish Routine") {
-                            let workoutList = NSSet(array: workouts)
-                            controller.addHistory(routineTitle: usedRoutine.title ?? "", totalWorkouts: usedRoutine.totalWorkouts, totalSets: usedRoutine.totalSets, workouts: workoutList, context: managedObjectContext)
-                            workouts = []
                         }
                     } else {
                         Button("Next Workout") {
@@ -71,7 +66,13 @@ struct StartRoutineView: View {
                             save(context: managedObjectContext)
                         }
                     }
-                } 
+                } else {
+                    Button("Finish Routine") {
+                        let workoutList = NSSet(array: workouts)
+                        controller.addHistory(routineTitle: usedRoutine.title ?? "", totalWorkouts: usedRoutine.totalWorkouts, totalSets: usedRoutine.totalSets, workouts: workoutList, context: managedObjectContext)
+                        workouts = []
+                    }
+                }
             }
         }
     }
