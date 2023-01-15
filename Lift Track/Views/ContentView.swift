@@ -12,7 +12,7 @@ struct ContentView: View {
     // adds the managed object so fetch requests can be performed
     @Environment(\.managedObjectContext) var managedObjectContext
     // fetches the routines stored in the core data model
-    @FetchRequest(sortDescriptors: [SortDescriptor(\.id)]) private var routines: FetchedResults<Routine>
+    @FetchRequest(sortDescriptors: [SortDescriptor(\.id)]) var routines: FetchedResults<Routine>
     var body: some View {
         NavigationStack {
             List {
@@ -20,6 +20,9 @@ struct ContentView: View {
                     NavigationLink(destination: SubRoutineView(routine: routine)) {
                         CardView(routine: routine)
                     }
+                }
+                .onDelete { indexSet in
+                    deleteRoutine(context: managedObjectContext, offsets: indexSet)
                 }
             }
             // creates plus icon to go to new routine view

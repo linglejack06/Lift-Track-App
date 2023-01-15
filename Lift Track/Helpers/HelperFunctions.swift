@@ -55,3 +55,17 @@ extension StartRoutineView  {
         return workout
     }
 }
+
+extension ContentView {
+    func deleteRoutine(context: NSManagedObjectContext, offsets: IndexSet) {
+        for index in offsets {
+            let routine = routines[index]
+            managedObjectContext.delete(routine)
+        }
+        do {
+            try managedObjectContext.save()
+        } catch {
+            print("Error: Failed to delete routine")
+        }
+    }
+}
