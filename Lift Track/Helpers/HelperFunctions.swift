@@ -33,9 +33,10 @@ extension StartRoutineView  {
         history.totalSets = totalSets
         history.addToWorkouts(workouts)
     }
-    func createSet (weight: Int16, reps: Int16, setNumber: Int16, notes: String, context: NSManagedObjectContext) -> Set {
+    func createSet (weight: Int16, weightUnit: String, reps: Int16, setNumber: Int16, notes: String, context: NSManagedObjectContext) -> Set {
         let set = Set(context: context)
         set.weight = weight
+        set.weightUnit = weightUnit
         set.reps = reps
         set.setNumber = setNumber
         set.notes = notes

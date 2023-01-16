@@ -10,9 +10,20 @@ import SwiftUI
 struct HistoryView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @State var filter = ""
-    @State var searchKey = "" //replace with a enum of the types appicable to be searched by in entry
+    @State var searchKey: HistoryKey = .routineTitle
+    @FetchRequest(sortDescriptors: [SortDescriptor(\.id)]) var entries: FetchedResults<History>
     var body: some View {
-        HistoryFilteredList(searchKey: "routineTitle", filter: "")
+        Picker("Select Key", selection: $searchKey) {
+            Text("Title").tag(HistoryKey.routineTitle)
+            Text("Date").tag(HistoryKey.date)
+        }
+        if !filter.isEmpty {
+            HistoryFilteredList(searchKey: searchKey.rawValue, filter: filter)
+        } else {
+            ForEach(entries, id: \.self) { entry in
+                Text(entry.routineTitle ?? "Unknown Title")
+            }
+        }
     }
 }
 

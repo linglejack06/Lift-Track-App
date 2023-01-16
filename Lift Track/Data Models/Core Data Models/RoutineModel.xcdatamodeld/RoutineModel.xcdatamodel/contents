@@ -20,6 +20,7 @@
         <attribute name="reps" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="setNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="weight" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="weightUnit" optional="YES" attributeType="String"/>
         <relationship name="workout" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Workout" inverseName="setList" inverseEntity="Workout"/>
     </entity>
     <entity name="Workout" representedClassName="Workout" parentEntity="Routine" syncable="YES">

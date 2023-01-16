@@ -21,10 +21,18 @@ struct StartRoutineView: View {
     @State var workoutNumber = 0
     @State var setNumber = 0
     @State var totalSets = 0
+    @State var weightUnit: WeightUnitOptions = .pounds
     var body: some View {
         Form {
             if totalSets != usedRoutine.totalSets {
-                TextField("Weight: ", text: $weight)
+                HStack {
+                    TextField("Weight: ", text: $weight)
+                    Picker("Select Weight Unit", selection: $weightUnit) {
+                        ForEach(WeightUnitOptions.allCases) { unit in
+                            Text(unit.rawValue.capitalized)
+                        }
+                    }
+                }
                 TextField("Reps: ", text: $reps)
                 TextField("Notes: ", text: $notes, axis: .vertical)
             } else {
@@ -38,7 +46,7 @@ struct StartRoutineView: View {
                 if workoutNumber  != usedRoutine.totalWorkouts {
                     if setNumber != usedRoutine.workoutArray[workoutNumber].sets - 1 {
                         Button("Next Set") {
-                            let set = createSet(weight: Int16(weight) ?? 0, reps: Int16(reps) ?? 0, setNumber: Int16(setNumber), notes: notes, context: managedObjectContext)
+                            let set = createSet(weight: Int16(weight) ?? 0,weightUnit: weightUnit.rawValue.capitalized, reps: Int16(reps) ?? 0, setNumber: Int16(setNumber), notes: notes, context: managedObjectContext)
                             setsArray.append(set)
                             reset()
                             incSetNumAndTotalSet()
@@ -47,7 +55,7 @@ struct StartRoutineView: View {
                     } else {
                         Button("Next Workout") {
                             //add last set to sets array
-                            let lastSet = createSet(weight: Int16(weight) ?? 0, reps: Int16(reps) ?? 0, setNumber: Int16(setNumber), notes: notes, context: managedObjectContext)
+                            let lastSet = createSet(weight: Int16(weight) ?? 0, weightUnit: weightUnit.rawValue.capitalized, reps: Int16(reps) ?? 0, setNumber: Int16(setNumber), notes: notes, context: managedObjectContext)
                             setsArray.append(lastSet)
                             reset()
                             totalSets += 1

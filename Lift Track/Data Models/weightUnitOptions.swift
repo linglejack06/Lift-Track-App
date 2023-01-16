@@ -8,9 +8,11 @@
 import Foundation
 import CoreData
 
-enum WeightUnitOptions: String, CaseIterable{
+enum WeightUnitOptions: String, CaseIterable, Identifiable{
     case pounds = "lbs"
     case poundsPerSide = "lbs per side"
     case kilograms = "kg"
     case kilogramsPerSide = "kg per side"
+    
+    var id: Self { self }
 }

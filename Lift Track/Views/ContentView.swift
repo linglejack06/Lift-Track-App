@@ -33,9 +33,9 @@ struct ContentView: View {
                         Image(systemName: "plus")
                     }
                 }
-                ToolbarItem(placement: ToolbarItemPlacement.bottomBar) {
+                ToolbarItem(placement: ToolbarItemPlacement.navigationBarLeading) {
                     NavigationLink(destination: HistoryView()) {
-                        Image(systemName: "plus")
+                        Text("History")
                     }
                 }
             }
