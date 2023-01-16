@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct HistoryView: View {
+    @Environment(\.managedObjectContext) var managedObjectContext
+    @State var filter = ""
+    @State var searchKey = "" //replace with a enum of the types appicable to be searched by in entry
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HistoryFilteredList(searchKey: "routineTitle", filter: "")
     }
 }
 

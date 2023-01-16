@@ -23,6 +23,7 @@
 		5C8600882963C70E00D8731E /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8600872963C70E00D8731E /* HistoryView.swift */; };
 		5C860092296A4C6400D8731E /* NewSetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C860091296A4C6400D8731E /* NewSetView.swift */; };
 		5CBCA968296FABA2006EC758 /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBCA967296FABA2006EC758 /* HelperFunctions.swift */; };
+		5CBCA96C2974EDD8006EC758 /* HistoryFilteredList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBCA96B2974EDD8006EC758 /* HistoryFilteredList.swift */; };
 		5CD29548291496B0002242E3 /* Lift_TrackApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD29547291496B0002242E3 /* Lift_TrackApp.swift */; };
 		5CD2954A291496B0002242E3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD29549291496B0002242E3 /* ContentView.swift */; };
 		5CD2954C291496B2002242E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CD2954B291496B2002242E3 /* Assets.xcassets */; };
@@ -71,6 +72,7 @@
 		5C8600872963C70E00D8731E /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		5C860091296A4C6400D8731E /* NewSetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSetView.swift; sourceTree = "<group>"; };
 		5CBCA967296FABA2006EC758 /* HelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
+		5CBCA96B2974EDD8006EC758 /* HistoryFilteredList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryFilteredList.swift; sourceTree = "<group>"; };
 		5CD29544291496B0002242E3 /* Lift Track.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lift Track.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CD29547291496B0002242E3 /* Lift_TrackApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lift_TrackApp.swift; sourceTree = "<group>"; };
 		5CD29549291496B0002242E3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 			children = (
 				5CD295932919FA00002242E3 /* EditWorkoutView.swift */,
 				5CD29549291496B0002242E3 /* ContentView.swift */,
+				5CBCA96B2974EDD8006EC758 /* HistoryFilteredList.swift */,
 				5C5FEFD9292722610080BF47 /* NewWorkoutView.swift */,
 				5C8600872963C70E00D8731E /* HistoryView.swift */,
 				5CD2959F291B4776002242E3 /* AddRoutineView.swift */,
@@ -367,6 +370,7 @@
 				5CD2959229183625002242E3 /* SubRoutineView.swift in Sources */,
 				5CBCA968296FABA2006EC758 /* HelperFunctions.swift in Sources */,
 				5C8600842956736B00D8731E /* History+CoreDataProperties.swift in Sources */,
+				5CBCA96C2974EDD8006EC758 /* HistoryFilteredList.swift in Sources */,
 				5C8600882963C70E00D8731E /* HistoryView.swift in Sources */,
 				5C5FEFDA292722610080BF47 /* NewWorkoutView.swift in Sources */,
 				5C8600832956736B00D8731E /* History+CoreDataClass.swift in Sources */,
