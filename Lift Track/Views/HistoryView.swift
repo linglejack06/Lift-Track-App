@@ -11,7 +11,7 @@ struct HistoryView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @State var filter = ""
     @State var searchKey: HistoryKey = .routineTitle
-    @FetchRequest(sortDescriptors: [SortDescriptor(\.id)]) var entries: FetchedResults<History>
+    @FetchRequest(sortDescriptors: [SortDescriptor(\.date)]) var entries: FetchedResults<History>
     var body: some View {
         Picker("Select Key", selection: $searchKey) {
             Text("Title").tag(HistoryKey.routineTitle)
@@ -20,8 +20,12 @@ struct HistoryView: View {
         if !filter.isEmpty {
             HistoryFilteredList(searchKey: searchKey.rawValue, filter: filter)
         } else {
-            ForEach(entries, id: \.self) { entry in
-                Text(entry.routineTitle ?? "Unknown Title")
+            List {
+                ForEach(entries, id: \.self) { entry in
+                    NavigationLink(destination: HistoryDetailView(entry: entry)) {
+                        HistoryCardView(entry: entry)
+                    }
+                }
             }
         }
     }

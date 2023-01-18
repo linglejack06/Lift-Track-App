@@ -10,13 +10,16 @@ import SwiftUI
 struct HistoryFilteredList: View {
     @FetchRequest var entries: FetchedResults<History>
     var body: some View {
-        ForEach(entries, id: \.self) { entry in
-            //change this to create a card view of history similar to routine
-            Text(entry.routineTitle ?? "")
+        List {
+            ForEach(entries, id: \.self) { entry in
+                NavigationLink(destination: HistoryDetailView(entry: entry)) {
+                    HistoryCardView(entry: entry)
+                }
+            }
         }
     }
     init(searchKey: String, filter: String) {
-        _entries = FetchRequest<History>(sortDescriptors: [], predicate: NSPredicate(format: "%K BEGINSWITH %@", searchKey, filter))
+        _entries = FetchRequest<History>(sortDescriptors: [SortDescriptor(\.date)], predicate: NSPredicate(format: "%K BEGINSWITH %@", searchKey, filter))
     }
 }
 

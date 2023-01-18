@@ -30,7 +30,6 @@ extension History {
             $0.wrappedName < $1.wrappedName
         }
     }
-    
     //TODO: add function that takes in a routine and automatically converts it to history to be stored
 }
 

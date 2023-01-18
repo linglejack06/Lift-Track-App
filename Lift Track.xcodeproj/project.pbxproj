@@ -11,6 +11,8 @@
 		5C59EC98294B92CC003E6259 /* RoutineModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5C59EC96294B92CC003E6259 /* RoutineModel.xcdatamodeld */; };
 		5C59EC9D294B9425003E6259 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C59EC9C294B9425003E6259 /* PersistenceController.swift */; };
 		5C5FEFDA292722610080BF47 /* NewWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5FEFD9292722610080BF47 /* NewWorkoutView.swift */; };
+		5C71650029777F0C00297DBE /* HistoryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7164FF29777F0C00297DBE /* HistoryCardView.swift */; };
+		5C7165022977823600297DBE /* HistoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7165012977823600297DBE /* HistoryDetailView.swift */; };
 		5C86007629566CC600D8731E /* WeightUnitOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C86007529566CC600D8731E /* WeightUnitOptions.swift */; };
 		5C86007F2956736B00D8731E /* Set+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8600772956736B00D8731E /* Set+CoreDataClass.swift */; };
 		5C8600802956736B00D8731E /* Set+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8600782956736B00D8731E /* Set+CoreDataProperties.swift */; };
@@ -61,6 +63,8 @@
 		5C59EC97294B92CC003E6259 /* RoutineModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RoutineModel.xcdatamodel; sourceTree = "<group>"; };
 		5C59EC9C294B9425003E6259 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		5C5FEFD9292722610080BF47 /* NewWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWorkoutView.swift; sourceTree = "<group>"; };
+		5C7164FF29777F0C00297DBE /* HistoryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCardView.swift; sourceTree = "<group>"; };
+		5C7165012977823600297DBE /* HistoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetailView.swift; sourceTree = "<group>"; };
 		5C86007529566CC600D8731E /* WeightUnitOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightUnitOptions.swift; sourceTree = "<group>"; };
 		5C8600772956736B00D8731E /* Set+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Set+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		5C8600782956736B00D8731E /* Set+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Set+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
@@ -220,6 +224,8 @@
 				5CBCA96B2974EDD8006EC758 /* HistoryFilteredList.swift */,
 				5C5FEFD9292722610080BF47 /* NewWorkoutView.swift */,
 				5C8600872963C70E00D8731E /* HistoryView.swift */,
+				5C7165012977823600297DBE /* HistoryDetailView.swift */,
+				5C7164FF29777F0C00297DBE /* HistoryCardView.swift */,
 				5CD2959F291B4776002242E3 /* AddRoutineView.swift */,
 				5CD2959129183625002242E3 /* SubRoutineView.swift */,
 				5C5067072948B73D009E5BEE /* StartRoutineView.swift */,
@@ -371,11 +377,13 @@
 				5CD295942919FA00002242E3 /* EditWorkoutView.swift in Sources */,
 				5C86007629566CC600D8731E /* WeightUnitOptions.swift in Sources */,
 				5CD2959229183625002242E3 /* SubRoutineView.swift in Sources */,
+				5C71650029777F0C00297DBE /* HistoryCardView.swift in Sources */,
 				5CBCA968296FABA2006EC758 /* HelperFunctions.swift in Sources */,
 				5C8600842956736B00D8731E /* History+CoreDataProperties.swift in Sources */,
 				5CBCA96C2974EDD8006EC758 /* HistoryFilteredList.swift in Sources */,
 				5C8600882963C70E00D8731E /* HistoryView.swift in Sources */,
 				5C5FEFDA292722610080BF47 /* NewWorkoutView.swift in Sources */,
+				5C7165022977823600297DBE /* HistoryDetailView.swift in Sources */,
 				5C8600832956736B00D8731E /* History+CoreDataClass.swift in Sources */,
 				5C86007F2956736B00D8731E /* Set+CoreDataClass.swift in Sources */,
 				5C8600812956736B00D8731E /* Routine+CoreDataClass.swift in Sources */,
