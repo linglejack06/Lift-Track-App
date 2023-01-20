@@ -40,10 +40,12 @@ struct AddRoutineView: View {
                    newRoutine.totalWorkouts = Int16(totalWorkouts)
                    newRoutine.addToWorkouts(workoutSet)
                    newRoutine.id = UUID()
-                   do {
-                       try managedObjectContext.save()
-                   } catch {
-                       print("Error: failed to save routine")
+                   if managedObjectContext.hasChanges {
+                       do {
+                           try managedObjectContext.save()
+                       } catch {
+                           print("Error: failed to save routine")
+                       }
                    }
                    // dismiss should send back to root view (in this case routine view
                    // like clicking back but can also save the changes
@@ -66,7 +68,7 @@ struct AddRoutineView: View {
                    .padding()
                Button("Add To Routine") {
                    // When add to routine is clicked, set all workout view values to the new workout and add it to the new routine
-                   var newWorkout = Workout(context: managedObjectContext)
+                   let newWorkout = Workout(context: managedObjectContext)
                    newWorkout.workoutNumber = Int16(workoutNumber)
                    workoutNumber += 1
                    newWorkout.workoutName = workoutName
@@ -75,7 +77,6 @@ struct AddRoutineView: View {
                    totalWorkouts += 1
                    totalSets += sets
                    // once added, the workout is reset to be able to add additional workouts
-                   newWorkout = Workout(context: managedObjectContext)
                    do {
                        try managedObjectContext.save()
                    } catch {

@@ -26,10 +26,12 @@ class PersistenceController: ObservableObject {
     }
     
     func save(context: NSManagedObjectContext) {
-        do {
-            try context.save()
-        } catch {
-            print("Routine could not be saved")
+        if context.hasChanges {
+            do {
+                try context.save()
+            } catch {
+                print("Routine could not be saved")
+            }
         }
     }
     
