@@ -30,6 +30,16 @@ extension History {
             $0.wrappedName < $1.wrappedName
         }
     }
+    //counts sets actually filled in to see if history was complete or not
+    public var setCounter: Int {
+        var temp = 0
+        for workout in workoutArray {
+            for _ in workout.setArray {
+                temp += 1
+            }
+        }
+        return temp
+    }
     //TODO: add function that takes in a routine and automatically converts it to history to be stored
 }
 

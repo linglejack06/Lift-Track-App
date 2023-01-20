@@ -82,6 +82,15 @@ struct StartRoutineView: View {
                     }
                 }
             }
+            ToolbarItem(placement: .navigationBarTrailing) {
+                //displayed at all times to save when not finished in case something happens
+                Button("Save") {
+                    let workoutList = NSSet(array: workouts)
+                    addHistory(routineTitle: usedRoutine.title ?? "", totalWorkouts: usedRoutine.totalWorkouts, totalSets: usedRoutine.totalSets, workouts: workoutList, context: managedObjectContext)
+                    workouts = []
+                    dismiss()
+                }
+            }
         }
     }
 }

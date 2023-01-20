@@ -14,11 +14,15 @@ struct CardView: View {
         HStack {
             VStack(alignment: .leading) {
                 Text(routine.title ?? "")
-                    .font(.headline)
+                    .font(.system(.title, design: .rounded))
                     .accessibilityAddTraits(.isHeader)
                     .foregroundColor(.primary)
+                Text("Workouts: \(routine.totalWorkouts)")
+                    .foregroundColor(.secondary)
+                    .font(.system(.headline, design: .rounded))
                 Text("Sets: \(routine.totalSets)")
                     .foregroundColor(.secondary)
+                    .font(.system(.headline, design: .rounded))
             }
         }
         .padding()

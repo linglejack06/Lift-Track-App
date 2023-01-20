@@ -10,19 +10,28 @@ import SwiftUI
 struct HistoryCardView: View {
     var entry: History
     var body: some View {
-        VStack {
+        VStack (alignment: .leading) {
             Text(entry.routineTitle ?? "")
                 .font(.system(.title, design: .rounded))
-                .frame(maxWidth: .infinity, alignment: .leading)
+                .foregroundColor(.primary)
             Text(entry.date ?? Date.now, style: .date)
                 .font(.system(.headline, design: .rounded))
-                .frame(maxWidth: .infinity, alignment: .leading)
+                .foregroundColor(.primary)
             Text("Workouts: \(entry.totalWorkouts)")
                 .foregroundColor(.secondary)
-                .frame(maxWidth: .infinity, alignment: .leading)
+                .font(.system(.subheadline, design: .rounded))
             Text("Sets: \(entry.totalSets)")
                 .foregroundColor(.secondary)
-                .frame(maxWidth: .infinity, alignment: .leading)
+                .font(.system(.subheadline, design: .rounded))
+            // checks if sets filled in is equal to the total sets in the entry
+            if entry.totalSets == entry.setCounter {
+                Text("Finished")
+                    .foregroundColor(.green)
+            } else {
+                Text("Not Finished")
+                    .foregroundColor(.red)
+                Text(String(entry.setCounter))
+            }
         }
         .padding()
     }

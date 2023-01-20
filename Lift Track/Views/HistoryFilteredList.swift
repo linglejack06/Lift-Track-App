@@ -18,8 +18,18 @@ struct HistoryFilteredList: View {
             }
         }
     }
-    init(searchKey: String, filter: String) {
-        _entries = FetchRequest<History>(sortDescriptors: [SortDescriptor(\.date)], predicate: NSPredicate(format: "%K BEGINSWITH %@", searchKey, filter))
+    init(filter: String) {
+        _entries = FetchRequest<History>(sortDescriptors: [SortDescriptor(\.date)], predicate: NSPredicate(format: "routineTitle BEGINSWITH %@", filter))
+    }
+    init(date: Date) {
+        var calendar = Calendar.current
+        calendar.timeZone = NSTimeZone.local
+        let startOfDay = calendar.startOfDay(for: date)
+        let endOfDay = calendar.date(byAdding: .day, value: 1, to: startOfDay)!
+        _entries = FetchRequest<History>(sortDescriptors: [SortDescriptor(\.date)], predicate: NSPredicate(format: "date > %@ AND date < %@", argumentArray: [startOfDay, endOfDay]))
+    }
+    init() {
+        _entries = FetchRequest<History>(sortDescriptors: [SortDescriptor(\.date)])
     }
 }
 
