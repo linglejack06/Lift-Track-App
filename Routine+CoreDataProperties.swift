@@ -2,7 +2,7 @@
 //  Routine+CoreDataProperties.swift
 //  Lift Track
 //
-//  Created by Jack Lingle on 12/29/22.
+//  Created by Jack Lingle on 1/22/23.
 //
 //
 
@@ -21,7 +21,7 @@ extension Routine {
     @NSManaged public var totalSets: Int16
     @NSManaged public var totalWorkouts: Int16
     @NSManaged public var workouts: NSSet?
-    // converts to non optional
+    
     public var wrappedTitle: String {
         title ?? "New Routine"
     }
