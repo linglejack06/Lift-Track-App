@@ -12,6 +12,7 @@ import CoreData
 struct AddRoutineView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @Environment(\.dismiss) var dismiss
+    @FetchRequest(sortDescriptors: []) var routines: FetchedResults<Routine>
     //@State var newRoutine = Routine()
     @State var workouts: [Workout] = []
     @State var title = ""
@@ -35,11 +36,13 @@ struct AddRoutineView: View {
                Button("Save") {
                    let newRoutine = Routine(context: managedObjectContext)
                    let workoutSet = NSSet(array: workouts)
+                   checkTitle(title: title, context: managedObjectContext)
                    newRoutine.title = title
                    newRoutine.totalSets = Int16(totalSets)
                    newRoutine.totalWorkouts = Int16(totalWorkouts)
                    newRoutine.addToWorkouts(workoutSet)
                    newRoutine.id = UUID()
+                   checkRoutines(context: managedObjectContext)
                    if managedObjectContext.hasChanges {
                        do {
                            try managedObjectContext.save()
