@@ -13,7 +13,7 @@
         <attribute name="title" optional="YES" attributeType="String"/>
         <attribute name="totalSets" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="totalWorkouts" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <relationship name="workouts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Workout" inverseName="routines" inverseEntity="Workout"/>
+        <relationship name="workouts" optional="YES" toMany="YES" deletionRule="Deny" destinationEntity="Workout" inverseName="routines" inverseEntity="Workout"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="title"/>
@@ -33,7 +33,7 @@
         <attribute name="workoutName" optional="YES" attributeType="String"/>
         <attribute name="workoutNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="history" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="History" inverseName="workouts" inverseEntity="History"/>
-        <relationship name="routines" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Routine" inverseName="workouts" inverseEntity="Routine"/>
+        <relationship name="routines" optional="YES" maxCount="1" deletionRule="Deny" destinationEntity="Routine" inverseName="workouts" inverseEntity="Routine"/>
         <relationship name="setList" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Set" inverseName="workout" inverseEntity="Set"/>
     </entity>
 </model>

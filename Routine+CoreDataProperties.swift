@@ -30,7 +30,7 @@ extension Routine {
         let set = workouts as? Swift.Set<Workout> ?? []
         
         return set.sorted {
-            $0.wrappedName < $1.wrappedName
+            $0.wrappedTitle < $1.wrappedTitle
         }
     }
 

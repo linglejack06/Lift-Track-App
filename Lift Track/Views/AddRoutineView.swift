@@ -42,6 +42,9 @@ struct AddRoutineView: View {
                    newRoutine.totalWorkouts = Int16(totalWorkouts)
                    newRoutine.addToWorkouts(workoutSet)
                    newRoutine.id = UUID()
+                   for workout in workouts {
+                       workout.routines = newRoutine
+                   }
                    checkRoutines(context: managedObjectContext)
                    if managedObjectContext.hasChanges {
                        do {
