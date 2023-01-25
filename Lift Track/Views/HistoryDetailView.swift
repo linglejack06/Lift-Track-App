@@ -11,21 +11,21 @@ struct HistoryDetailView: View {
     var entry: History
     @State var isFinishing = false
     var body: some View {
-        Section("Routine") {
+        VStack {
             HistoryCardView(entry: entry)
-        }
-        Section("Workouts") {
-            ForEach(entry.workoutArray, id: \.self) { workout in
-                Text(workout.workoutName ?? "Unknown Workout Name")
-                ForEach(workout.setArray, id: \.self) { set in
-                    VStack {
-                        HStack {
-                            Text("\(set.setNumber + 1).")
-                            Text("\(set.reps) reps")
-                        }
-                        HStack {
-                            Spacer()
-                            Text("\(set.weight) \(set.weightUnit ?? "Pounds")")
+            Section("Workouts") {
+                ForEach(entry.workoutArray, id: \.self) { workout in
+                    Text(workout.workoutName ?? "Unknown Workout Name")
+                    ForEach(workout.setArray, id: \.self) { set in
+                        VStack {
+                            HStack {
+                                Text("\(set.setNumber + 1).")
+                                Text("\(set.reps) reps")
+                            }
+                            HStack {
+                                Spacer()
+                                Text("\(set.weight) \(set.weightUnit ?? "Pounds")")
+                            }
                         }
                     }
                 }
@@ -37,6 +37,9 @@ struct HistoryDetailView: View {
                     Button("Finish Routine") {
                         isFinishing = true
                     }
+                } else {
+                    Text("Finished")
+                        .foregroundColor(.green)
                 }
             }
         }
