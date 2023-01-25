@@ -9,8 +9,40 @@ import SwiftUI
 
 struct HistoryDetailView: View {
     var entry: History
+    @State var isFinishing = false
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Section("Routine") {
+            HistoryCardView(entry: entry)
+        }
+        Section("Workouts") {
+            ForEach(entry.workoutArray, id: \.self) { workout in
+                Text(workout.workoutName ?? "Unknown Workout Name")
+                ForEach(workout.setArray, id: \.self) { set in
+                    VStack {
+                        HStack {
+                            Text("\(set.setNumber + 1).")
+                            Text("\(set.reps) reps")
+                        }
+                        HStack {
+                            Spacer()
+                            Text("\(set.weight) \(set.weightUnit ?? "Pounds")")
+                        }
+                    }
+                }
+            }
+        }
+        .toolbar {
+            ToolbarItem(placement: ToolbarItemPlacement.bottomBar) {
+                if entry.totalSets == entry.setCounter {
+                    Button("Finish Routine") {
+                        isFinishing = true
+                    }
+                }
+            }
+        }
+        .sheet(isPresented: $isFinishing) {
+            
+        }
     }
 }
 
