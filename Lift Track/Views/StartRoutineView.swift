@@ -40,7 +40,7 @@ struct StartRoutineView: View {
                 Text(String(usedRoutine.totalSets))
             }
         }
-        .navigationTitle("")
+        .navigationTitle(usedRoutine.title ?? "")
         .toolbar {
             ToolbarItem(placement: ToolbarItemPlacement.bottomBar) {
                 if workoutNumber  != usedRoutine.totalWorkouts {
@@ -50,7 +50,6 @@ struct StartRoutineView: View {
                             setsArray.append(set)
                             reset()
                             incSetNumAndTotalSet()
-                            save(context: managedObjectContext)
                         }
                     } else {
                         Button("Next Workout") {
@@ -70,7 +69,6 @@ struct StartRoutineView: View {
                             setNumber = 0
                             // add one to workout number so the workout name, etc. are from next workout not just the same workout
                             workoutNumber += 1
-                            save(context: managedObjectContext)
                         }
                     }
                 } else {

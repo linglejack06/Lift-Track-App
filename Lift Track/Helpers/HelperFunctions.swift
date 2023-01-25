@@ -17,11 +17,13 @@ extension StartRoutineView  {
         setNumber += 1
         totalSets += 1
     }
-    func save(context: NSManagedObjectContext) {
-        do {
-            try context.save()
-        } catch {
-            print("Error: Failed to save")
+    func save(context: NSManagedObjectContext, error: String) {
+        if managedObjectContext.hasChanges {
+            do {
+                try managedObjectContext.save()
+            } catch {
+                print(error)
+            }
         }
     }
     func addHistory(routineTitle: String, totalWorkouts: Int16, totalSets: Int16, workouts: NSSet, context: NSManagedObjectContext) {
@@ -32,6 +34,7 @@ extension StartRoutineView  {
         history.totalWorkouts = totalWorkouts
         history.totalSets = totalSets
         history.addToWorkouts(workouts)
+        save(context: context, error: "Error: Could Not Add History")
     }
     func createSet (weight: Int16, weightUnit: String, reps: Int16, setNumber: Int16, notes: String, context: NSManagedObjectContext) -> Set {
         let set = Set(context: context)
@@ -40,6 +43,7 @@ extension StartRoutineView  {
         set.reps = reps
         set.setNumber = setNumber
         set.notes = notes
+        save(context: context, error: "Error: Failed To Add Set")
         return set
     }
     func createWorkout(workoutNumber: Int16, sets: Int16, workoutName: String, setsArray: [Set], context: NSManagedObjectContext) -> Workout {
@@ -53,6 +57,7 @@ extension StartRoutineView  {
         // has to be type NSSet to work with core data relationships
         workout.addToSetList(setList)
         // return workout to a variable so it can be added to the workouts array
+        save(context: context, error: "Error: Failed To Add Workout")
         return workout
     }
 }
