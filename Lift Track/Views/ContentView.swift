@@ -12,7 +12,7 @@ struct ContentView: View {
     // adds the managed object so fetch requests can be performed
     @Environment(\.managedObjectContext) var managedObjectContext
     // fetches the routines stored in the core data model
-    @FetchRequest(sortDescriptors: [SortDescriptor(\.id)], predicate: NSPredicate(format: "title != ''")) var routines: FetchedResults<Routine>
+    @FetchRequest(sortDescriptors: [SortDescriptor(\.id)], predicate: NSPredicate(format: "title != nil")) var routines: FetchedResults<Routine>
     var body: some View {
         NavigationStack {
             List {

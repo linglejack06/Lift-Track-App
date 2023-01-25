@@ -72,13 +72,6 @@ extension ContentView {
 }
 
 extension AddRoutineView {
-    func checkRoutines (context: NSManagedObjectContext) {
-        for routine in routines {
-            if routine.title == nil {
-                context.delete(routine)
-            }
-        }
-    }
     func checkTitle (title: String, context: NSManagedObjectContext) {
         for routine in routines {
             if routine.title == title {
