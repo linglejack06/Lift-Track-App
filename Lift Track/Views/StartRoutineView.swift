@@ -12,6 +12,7 @@ import CoreData
 struct StartRoutineView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @Environment(\.dismiss) var dismiss
+    @FetchRequest(sortDescriptors: [SortDescriptor(\.date)]) var entries: FetchedResults<History>
     var usedRoutine: FetchedResults<Routine>.Element
     @State var workouts: [Workout] = []
     @State var setsArray: [Set] = []
@@ -25,15 +26,14 @@ struct StartRoutineView: View {
     var body: some View {
         Form {
             if totalSets != usedRoutine.totalSets {
-                Text(usedRoutine.workoutArray[workoutNumber].workoutName!)
-                HStack {
-                    TextField("Weight: ", text: $weight)
-                    Picker("Select Weight Unit", selection: $weightUnit) {
-                        ForEach(WeightUnitOptions.allCases) { unit in
-                            Text(unit.rawValue.capitalized)
-                        }
+                Text(usedRoutine.workoutArray[workoutNumber].workoutName ?? "")
+                    .font(.system(.title, design: .rounded))
+                Picker("Select Weight Unit", selection: $weightUnit) {
+                    ForEach(WeightUnitOptions.allCases) { unit in
+                        Text(unit.rawValue.capitalized)
                     }
                 }
+                TextField("Weight: ", text: $weight)
                 TextField("Reps: ", text: $reps)
                 TextField("Notes: ", text: $notes, axis: .vertical)
             } else {
@@ -88,13 +88,6 @@ struct StartRoutineView: View {
                             dismiss()
                         }
                     }
-                } else {
-                    Button("Finish Routine") {
-                        let workoutList = NSSet(array: workouts)
-                        addHistory(routineTitle: usedRoutine.title ?? "", totalWorkouts: usedRoutine.totalWorkouts, totalSets: usedRoutine.totalSets, workouts: workoutList, context: managedObjectContext)
-                        workouts = []
-                        dismiss()
-                    }
                 }
             }
             ToolbarItem(placement: .navigationBarTrailing) {
@@ -107,6 +100,7 @@ struct StartRoutineView: View {
                 }
             }
         }
+        // add previous history sets
     }
 }
 
