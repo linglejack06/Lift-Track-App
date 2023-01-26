@@ -25,6 +25,7 @@ struct StartRoutineView: View {
     var body: some View {
         Form {
             if totalSets != usedRoutine.totalSets {
+                Text(usedRoutine.workoutArray[workoutNumber].workoutName!)
                 HStack {
                     TextField("Weight: ", text: $weight)
                     Picker("Select Weight Unit", selection: $weightUnit) {
@@ -43,7 +44,7 @@ struct StartRoutineView: View {
         .navigationTitle(usedRoutine.title ?? "")
         .toolbar {
             ToolbarItem(placement: ToolbarItemPlacement.bottomBar) {
-                if workoutNumber  != usedRoutine.totalWorkouts {
+                if workoutNumber != usedRoutine.totalWorkouts {
                     if setNumber != usedRoutine.workoutArray[workoutNumber].sets - 1 {
                         Button("Next Set") {
                             let set = createSet(weight: Int16(weight) ?? 0,weightUnit: weightUnit.rawValue.capitalized, reps: Int16(reps) ?? 0, setNumber: Int16(setNumber), notes: notes, context: managedObjectContext)
@@ -51,7 +52,7 @@ struct StartRoutineView: View {
                             reset()
                             incSetNumAndTotalSet()
                         }
-                    } else {
+                    } else if workoutNumber != usedRoutine.totalWorkouts - 1 {
                         Button("Next Workout") {
                             //add last set to sets array
                             let lastSet = createSet(weight: Int16(weight) ?? 0, weightUnit: weightUnit.rawValue.capitalized, reps: Int16(reps) ?? 0, setNumber: Int16(setNumber), notes: notes, context: managedObjectContext)
@@ -59,7 +60,7 @@ struct StartRoutineView: View {
                             reset()
                             totalSets += 1
                             let routineWorkout = usedRoutine.workoutArray[workoutNumber]
-                            let workout = createWorkout(workoutNumber: Int16(workoutNumber), sets: routineWorkout.sets, workoutName: routineWorkout.workoutName ?? "", setsArray: setsArray, context: managedObjectContext)
+                            let workout = createWorkout(workoutNumber: Int16(workoutNumber), sets: routineWorkout.sets, workoutName: routineWorkout.workoutName!, setsArray: setsArray, context: managedObjectContext)
                             // add workout to temp array to better work wtih conditionals
                             // without doing this it results in variables named inside of conditionals that need to be used outside of them
                             workouts.append(workout)
@@ -69,6 +70,22 @@ struct StartRoutineView: View {
                             setNumber = 0
                             // add one to workout number so the workout name, etc. are from next workout not just the same workout
                             workoutNumber += 1
+                        }
+                    } else {
+                        Button("Finish Routine") {
+                            let lastSet = createSet(weight: Int16(weight) ?? 0, weightUnit: weightUnit.rawValue.capitalized, reps: Int16(reps) ?? 0, setNumber: Int16(setNumber), notes: notes, context: managedObjectContext)
+                            setsArray.append(lastSet)
+                            reset()
+                            totalSets += 1
+                            let routineWorkout = usedRoutine.workoutArray[workoutNumber]
+                            let workout = createWorkout(workoutNumber: Int16(workoutNumber), sets: routineWorkout.sets, workoutName: routineWorkout.workoutName!, setsArray: setsArray, context: managedObjectContext)
+                            // add workout to temp array to better work wtih conditionals
+                            // without doing this it results in variables named inside of conditionals that need to be used outside of them
+                            workouts.append(workout)
+                            let workoutList = NSSet(array: workouts)
+                            addHistory(routineTitle: usedRoutine.title ?? "", totalWorkouts: usedRoutine.totalWorkouts, totalSets: usedRoutine.totalSets, workouts: workoutList, context: managedObjectContext)
+                            workouts = []
+                            dismiss()
                         }
                     }
                 } else {

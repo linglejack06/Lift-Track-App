@@ -51,7 +51,7 @@ extension StartRoutineView  {
         let workout = Workout(context: context)
         workout.workoutNumber = workoutNumber
         workout.sets = sets
-        workout.workoutNumber = workoutNumber
+        workout.workoutName = workoutName
         //create NSSet type from sets array
         let setList = NSSet(array: setsArray)
         // has to be type NSSet to work with core data relationships
