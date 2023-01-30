@@ -24,7 +24,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "D2080A5F-2595-4646-9C42-A15237011E29"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Lift Track/Views/StartRoutineView.swift"
@@ -34,6 +34,98 @@
             endingLineNumber = "25"
             landmarkName = "StartRoutineView"
             landmarkType = "14">
+            <Locations>
+               <Location
+                  uuid = "D2080A5F-2595-4646-9C42-A15237011E29 - c133373abb9d3738"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "property wrapper backing initializer of Lift_Track.StartRoutineView.weightUnit : Lift_Track.WeightUnitOptions"
+                  moduleName = "Lift Track"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jacklingle/Desktop/LiftTrackApp/Lift%20Track/Views/StartRoutineView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  uuid = "D2080A5F-2595-4646-9C42-A15237011E29 - 8018a299d6cab56d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Lift_Track.StartRoutineView.weightUnit.getter : Lift_Track.WeightUnitOptions"
+                  moduleName = "Lift Track"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jacklingle/Desktop/LiftTrackApp/Lift%20Track/Views/StartRoutineView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "128">
+               </Location>
+               <Location
+                  uuid = "D2080A5F-2595-4646-9C42-A15237011E29 - 29275bb17d5f2591"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Lift_Track.StartRoutineView.weightUnit.setter : Lift_Track.WeightUnitOptions"
+                  moduleName = "Lift Track"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jacklingle/Desktop/LiftTrackApp/Lift%20Track/Views/StartRoutineView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "140">
+               </Location>
+               <Location
+                  uuid = "D2080A5F-2595-4646-9C42-A15237011E29 - 2cf8ac5b76e12160"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Lift_Track.StartRoutineView.weightUnit.modify : Lift_Track.WeightUnitOptions"
+                  moduleName = "Lift Track"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jacklingle/Desktop/LiftTrackApp/Lift%20Track/Views/StartRoutineView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "D2080A5F-2595-4646-9C42-A15237011E29 - 1ac710d3543f710f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Lift_Track.StartRoutineView.weightUnit.modify : Lift_Track.WeightUnitOptions with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "Lift Track"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jacklingle/Desktop/LiftTrackApp/Lift%20Track/Views/StartRoutineView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "32">
+               </Location>
+               <Location
+                  uuid = "D2080A5F-2595-4646-9C42-A15237011E29 - 5fd2ac86a19d98a9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Lift_Track.StartRoutineView.$weightUnit.getter : SwiftUI.Binding&lt;Lift_Track.WeightUnitOptions&gt;"
+                  moduleName = "Lift Track"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jacklingle/Desktop/LiftTrackApp/Lift%20Track/Views/StartRoutineView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "144">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

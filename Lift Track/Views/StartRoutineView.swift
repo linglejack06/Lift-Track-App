@@ -23,6 +23,7 @@ struct StartRoutineView: View {
     @State var setNumber = 0
     @State var totalSets = 0
     @State var weightUnit: WeightUnitOptions = .pounds
+    @State var workoutDuplicate = false
     var body: some View {
         Form {
             if totalSets != usedRoutine.totalSets {
@@ -36,9 +37,6 @@ struct StartRoutineView: View {
                 TextField("Weight: ", text: $weight)
                 TextField("Reps: ", text: $reps)
                 TextField("Notes: ", text: $notes, axis: .vertical)
-            } else {
-                Text("All sets have been added")
-                Text(String(usedRoutine.totalSets))
             }
         }
         .navigationTitle(usedRoutine.title ?? "")
@@ -93,6 +91,19 @@ struct StartRoutineView: View {
             ToolbarItem(placement: .navigationBarTrailing) {
                 //displayed at all times to save when not finished in case something happens
                 Button("Save") {
+                    for workout in usedRoutine.workoutArray {
+                        for name in workouts {
+                            if workout.title == name.title {
+                                workoutDuplicate = true
+                                break
+                            } else {
+                                workoutDuplicate = false
+                            }
+                        }
+                        if !workoutDuplicate {
+                            workouts.append(workout)
+                        }
+                    }
                     let workoutList = NSSet(array: workouts)
                     addHistory(routineTitle: usedRoutine.title ?? "", totalWorkouts: usedRoutine.totalWorkouts, totalSets: usedRoutine.totalSets, workouts: workoutList, context: managedObjectContext)
                     workouts = []

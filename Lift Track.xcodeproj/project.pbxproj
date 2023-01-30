@@ -171,8 +171,8 @@
 		5CD29546291496B0002242E3 /* Lift Track */ = {
 			isa = PBXGroup;
 			children = (
-				5CBCA966296FAB7F006EC758 /* Helpers */,
 				5CD29547291496B0002242E3 /* Lift_TrackApp.swift */,
+				5CBCA966296FAB7F006EC758 /* Helpers */,
 				5CD2959C291B40E2002242E3 /* Views */,
 				5CD2957229149C7C002242E3 /* Data Models */,
 				5CD2954B291496B2002242E3 /* Assets.xcassets */,
