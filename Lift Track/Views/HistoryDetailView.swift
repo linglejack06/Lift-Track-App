@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HistoryDetailView: View {
-    var entry: History
+    var entry: FetchedResults<History>.Element
     @State var isFinishing = false
     var body: some View {
         VStack {
@@ -44,7 +44,7 @@ struct HistoryDetailView: View {
             }
         }
         .sheet(isPresented: $isFinishing) {
-            
+            FinishRoutineView(entry: entry, workoutNumber: entry.workoutCounter, totalSets: entry.setCounter, isFinishing: $isFinishing)
         }
     }
 }

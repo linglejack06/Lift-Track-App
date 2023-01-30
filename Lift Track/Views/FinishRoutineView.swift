@@ -11,14 +11,15 @@ struct FinishRoutineView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @FetchRequest(sortDescriptors: [SortDescriptor(\.date)]) var entries: FetchedResults<History>
     var entry: FetchedResults<History>.Element
-    @Binding var workouts: [Workout]
-    @Binding var setsArray: [Set]
+    @State var workouts: [Workout] = []
+    @State var setsArray: [Set] = []
     @State var weight = ""
     @State var reps = ""
     @State var notes = ""
-    @Binding var workoutNumber: Int
-    @Binding var setNumber: Int
-    @Binding var totalSets: Int
+    @State var setNumber = 0
+    @State var workoutNumber: Int
+    @State var totalSets: Int
+    @Binding var isFinishing: Bool
     @State var weightUnit: WeightUnitOptions = .pounds
     var body: some View {
         Form {
@@ -53,10 +54,10 @@ struct FinishRoutineView: View {
                             reset()
                             totalSets += 1
                             let routineWorkout = entry.workoutArray[workoutNumber]
-                            let workout = createWorkout(workoutNumber: Int16(workoutNumber), sets: routineWorkout.sets, workoutName: routineWorkout.workoutName!, setsArray: setsArray, context: managedObjectContext)
+                            let finishedWorkout = finishWorkout(workout: routineWorkout, setsArray: setsArray, context: managedObjectContext)
                             // add workout to temp array to better work wtih conditionals
                             // without doing this it results in variables named inside of conditionals that need to be used outside of them
-                            workouts.append(workout)
+                            workouts.append(finishedWorkout)
                             // reinitialize sets to empty array to support next workout sets
                             setsArray = []
                             // reset set Number so each set can be added again
@@ -71,10 +72,10 @@ struct FinishRoutineView: View {
                             reset()
                             totalSets += 1
                             let routineWorkout = entry.workoutArray[workoutNumber]
-                            let workout = createWorkout(workoutNumber: Int16(workoutNumber), sets: routineWorkout.sets, workoutName: routineWorkout.workoutName!, setsArray: setsArray, context: managedObjectContext)
+                            let finishedWorkout = finishWorkout(workout: routineWorkout, setsArray: setsArray, context: managedObjectContext)
                             // add workout to temp array to better work wtih conditionals
                             // without doing this it results in variables named inside of conditionals that need to be used outside of them
-                            workouts.append(workout)
+                            workouts.append(finishedWorkout)
                             let workoutList = NSSet(array: workouts)
                             finishHistory(history: entry, workouts: workoutList, context: managedObjectContext)
                             workouts = []

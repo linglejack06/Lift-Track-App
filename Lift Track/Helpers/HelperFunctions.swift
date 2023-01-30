@@ -119,12 +119,8 @@ extension FinishRoutineView {
         save(context: context, error: "Error: Failed To Add Set")
         return set
     }
-    func createWorkout(workoutNumber: Int16, sets: Int16, workoutName: String, setsArray: [Set], context: NSManagedObjectContext) -> Workout {
+    func finishWorkout(workout: Workout, setsArray: [Set], context: NSManagedObjectContext) -> Workout {
         //initialize workout object to add sets to
-        let workout = Workout(context: context)
-        workout.workoutNumber = workoutNumber
-        workout.sets = sets
-        workout.workoutName = workoutName
         //create NSSet type from sets array
         let setList = NSSet(array: setsArray)
         // has to be type NSSet to work with core data relationships

@@ -40,6 +40,17 @@ extension History {
         }
         return temp
     }
+    
+    public var workoutCounter: Int {
+        var temp = 0
+        for workout in workoutArray {
+            // checks if workout has a set list, if so it will add that workout to the counter as finished
+            if workout.setList == nil {
+                temp += 1
+            }
+        }
+        return temp
+    }
 }
 
 // MARK: Generated accessors for workouts
