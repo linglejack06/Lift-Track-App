@@ -92,16 +92,14 @@ struct StartRoutineView: View {
                 //displayed at all times to save when not finished in case something happens
                 Button("Save") {
                     for workout in usedRoutine.workoutArray {
-                        for name in workouts {
-                            if workout.title == name.title {
-                                workoutDuplicate = true
-                                break
-                            } else {
-                                workoutDuplicate = false
-                            }
+                        if workouts.contains(workout) {
+                            workoutDuplicate = true
+                        } else {
+                            workoutDuplicate = false
                         }
                         if !workoutDuplicate {
                             workouts.append(workout)
+                            workoutDuplicate = false
                         }
                     }
                     let workoutList = NSSet(array: workouts)

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct FinishRoutineView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
+    @Environment(\.dismiss) var dismiss
     @FetchRequest(sortDescriptors: [SortDescriptor(\.date)]) var entries: FetchedResults<History>
     var entry: FetchedResults<History>.Element
     @State var workouts: [Workout] = []
@@ -78,6 +79,7 @@ struct FinishRoutineView: View {
                             let workoutList = NSSet(array: workouts)
                             finishHistory(history: entry, workouts: workoutList, context: managedObjectContext)
                             workouts = []
+                            dismiss()
                         }
                     }
                 }
