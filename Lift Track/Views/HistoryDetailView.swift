@@ -34,18 +34,22 @@ struct HistoryDetailView: View {
         .toolbar {
             ToolbarItem(placement: ToolbarItemPlacement.bottomBar) {
                 if entry.totalSets != entry.setCounter {
-                    Button("Finish Routine") {
-                        isFinishing = true
+                    NavigationLink("Finish Routine") {
+                        FinishRoutineView(entry: entry, workoutNumber: entry.workoutCounter, totalSets: entry.setCounter)
                     }
+//                    Button("Finish Routine") {
+//                        isFinishing = true
+//                    }
                 } else {
                     Text("Finished")
                         .foregroundColor(.green)
                 }
             }
         }
-        .sheet(isPresented: $isFinishing) {
-            FinishRoutineView(entry: entry, workoutNumber: entry.workoutCounter, totalSets: entry.setCounter, isFinishing: $isFinishing)
-        }
+//        .sheet(isPresented: $isFinishing) {
+//        FinishRoutineView(entry: entry, workoutNumber: entry.workoutCounter, totalSets: entry.setCounter, isFinishing: $isFinishing)
+//        }
+        
     }
 }
 

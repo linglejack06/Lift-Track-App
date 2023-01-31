@@ -19,7 +19,6 @@ struct FinishRoutineView: View {
     @State var setNumber = 0
     @State var workoutNumber: Int
     @State var totalSets: Int
-    @Binding var isFinishing: Bool
     @State var weightUnit: WeightUnitOptions = .pounds
     var body: some View {
         Form {
