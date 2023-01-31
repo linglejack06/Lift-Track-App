@@ -33,7 +33,7 @@ struct HistoryDetailView: View {
         }
         .toolbar {
             ToolbarItem(placement: ToolbarItemPlacement.bottomBar) {
-                if entry.totalSets == entry.setCounter {
+                if entry.totalSets != entry.setCounter {
                     Button("Finish Routine") {
                         isFinishing = true
                     }

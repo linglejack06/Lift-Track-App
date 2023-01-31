@@ -31,6 +31,7 @@ struct HistoryCardView: View {
                 Text("Not Finished")
                     .foregroundColor(.red)
                 Text(String(entry.setCounter))
+                Text(String(entry.workoutCounter))
             }
         }
         .padding()
