@@ -98,6 +98,7 @@ struct StartRoutineView: View {
                             workoutDuplicate = false
                         }
                         if !workoutDuplicate {
+                            workout.setList = nil
                             workouts.append(workout)
                             workoutDuplicate = false
                         }
