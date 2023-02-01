@@ -12,19 +12,31 @@ struct HistoryDetailView: View {
     @State var isFinishing = false
     var body: some View {
         VStack {
-            HistoryCardView(entry: entry)
-            Section("Workouts") {
+            HStack {
+                HistoryCardView(entry: entry)
+                Spacer()
+            }
+            Section(Text("Workouts").font(.system(.title, design: .rounded))) {
                 ForEach(entry.workoutArray, id: \.self) { workout in
                     Text(workout.workoutName ?? "Unknown Workout Name")
+                        .font(.system(.headline, design: .rounded))
+                        .foregroundColor(.primary)
                     ForEach(workout.setArray, id: \.self) { set in
                         VStack {
                             HStack {
                                 Text("\(set.setNumber + 1).")
+                                    .font(.system(design: .rounded))
+                                    .foregroundColor(.secondary)
                                 Text("\(set.reps) reps")
+                                    .font(.system(design: .rounded))
+                                    .foregroundColor(.secondary)
                             }
                             HStack {
                                 Spacer()
                                 Text("\(set.weight) \(set.weightUnit ?? "Pounds")")
+                                    .font(.system(design: .rounded))
+                                    .foregroundColor(.secondary)
+                                Spacer()
                             }
                         }
                     }
