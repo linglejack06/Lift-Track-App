@@ -16,32 +16,10 @@ struct HistoryDetailView: View {
                 HistoryCardView(entry: entry)
                 Spacer()
             }
-            Section(Text("Workouts").font(.system(.title, design: .rounded))) {
-                ForEach(entry.workoutArray, id: \.self) { workout in
-                    Text(workout.workoutName ?? "Unknown Workout Name")
-                        .font(.system(.headline, design: .rounded))
-                        .foregroundColor(.primary)
-                    ForEach(workout.setArray, id: \.self) { set in
-                        VStack {
-                            HStack {
-                                Text("\(set.setNumber + 1).")
-                                    .font(.system(design: .rounded))
-                                    .foregroundColor(.secondary)
-                                Text("\(set.reps) reps")
-                                    .font(.system(design: .rounded))
-                                    .foregroundColor(.secondary)
-                            }
-                            HStack {
-                                Spacer()
-                                Text("\(set.weight) \(set.weightUnit ?? "Pounds")")
-                                    .font(.system(design: .rounded))
-                                    .foregroundColor(.secondary)
-                                Spacer()
-                            }
-                        }
-                    }
-                }
+            Section("Workouts") {
+                SetsView(entry: entry)
             }
+            .font(.system(.title, design: .rounded))
         }
         .toolbar {
             ToolbarItem(placement: ToolbarItemPlacement.bottomBar) {
@@ -49,19 +27,12 @@ struct HistoryDetailView: View {
                     NavigationLink("Finish Routine") {
                         FinishRoutineView(entry: entry, workoutNumber: entry.workoutCounter, totalSets: entry.setCounter)
                     }
-//                    Button("Finish Routine") {
-//                        isFinishing = true
-//                    }
                 } else {
                     Text("Finished")
                         .foregroundColor(.green)
                 }
             }
         }
-//        .sheet(isPresented: $isFinishing) {
-//        FinishRoutineView(entry: entry, workoutNumber: entry.workoutCounter, totalSets: entry.setCounter, isFinishing: $isFinishing)
-//        }
-        
     }
 }
 
