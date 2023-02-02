@@ -66,16 +66,29 @@ extension ContentView {
     func deleteRoutine(context: NSManagedObjectContext, offsets: IndexSet) {
         for index in offsets {
             let routine = routines[index]
-            managedObjectContext.delete(routine)
+            context.delete(routine)
         }
         do {
-            try managedObjectContext.save()
+            try context.save()
         } catch {
             print("Error: Failed to delete routine")
         }
     }
 }
 
+extension HistoryFilteredList {
+    func deleteHistory(context: NSManagedObjectContext, offsets: IndexSet) {
+        for index in offsets {
+            let history = entries[index]
+            context.delete(history)
+        }
+        do {
+            try context.save()
+        } catch {
+            print("Error: Failed to delete history")
+        }
+    }
+}
 extension AddRoutineView {
     func checkTitle (title: String, context: NSManagedObjectContext) {
         for routine in routines {

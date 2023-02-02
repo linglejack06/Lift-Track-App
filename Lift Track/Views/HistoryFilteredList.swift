@@ -9,12 +9,16 @@ import SwiftUI
 
 struct HistoryFilteredList: View {
     @FetchRequest var entries: FetchedResults<History>
+    @Environment(\.managedObjectContext) var managedObjectContext
     var body: some View {
         List {
             ForEach(entries, id: \.self) { entry in
                 NavigationLink(destination: HistoryDetailView(entry: entry)) {
                     HistoryCardView(entry: entry)
                 }
+            }
+            .onDelete { indexSet in
+                deleteHistory(context: managedObjectContext, offsets: indexSet)
             }
         }
     }
