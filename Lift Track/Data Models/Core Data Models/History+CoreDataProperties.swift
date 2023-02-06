@@ -51,6 +51,14 @@ extension History {
         }
         return temp
     }
+    
+    public var totalVolume: Int {
+        var total = 0
+        for workout in workoutArray {
+            total += workout.workoutVolume
+        }
+        return total
+    }
 }
 
 // MARK: Generated accessors for workouts

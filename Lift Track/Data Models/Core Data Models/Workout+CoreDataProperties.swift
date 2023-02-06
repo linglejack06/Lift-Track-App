@@ -36,6 +36,13 @@ extension Workout {
             $0.setNumber < $1.setNumber
         }
     }
+    public var workoutVolume: Int {
+        var volume = 0
+        for set in setArray {
+            volume += set.setVolume
+        }
+        return volume
+    }
 
 }
 

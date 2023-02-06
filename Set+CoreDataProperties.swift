@@ -22,5 +22,9 @@ extension Set {
     @NSManaged public var weight: Int16
     @NSManaged public var weightUnit: String?
     @NSManaged public var workout: Workout?
+    
+    public var setVolume: Int {
+        return Int(reps) * Int(weight)
+    }
 
 }
