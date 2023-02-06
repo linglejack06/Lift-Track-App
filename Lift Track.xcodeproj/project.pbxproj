@@ -14,6 +14,7 @@
 		5C5FEFDA292722610080BF47 /* NewWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5FEFD9292722610080BF47 /* NewWorkoutView.swift */; };
 		5C62F24B298AD72B00E1A041 /* SetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C62F24A298AD72B00E1A041 /* SetsView.swift */; };
 		5C62F24D298AD7D800E1A041 /* SetCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C62F24C298AD7D800E1A041 /* SetCardView.swift */; };
+		5C62F25129917C5F00E1A041 /* SetDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C62F25029917C5F00E1A041 /* SetDetailView.swift */; };
 		5C644777298198D1001646DB /* FinishRoutineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C644776298198D1001646DB /* FinishRoutineView.swift */; };
 		5C71650029777F0C00297DBE /* HistoryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7164FF29777F0C00297DBE /* HistoryCardView.swift */; };
 		5C7165022977823600297DBE /* HistoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7165012977823600297DBE /* HistoryDetailView.swift */; };
@@ -69,6 +70,7 @@
 		5C5FEFD9292722610080BF47 /* NewWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWorkoutView.swift; sourceTree = "<group>"; };
 		5C62F24A298AD72B00E1A041 /* SetsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetsView.swift; sourceTree = "<group>"; };
 		5C62F24C298AD7D800E1A041 /* SetCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCardView.swift; sourceTree = "<group>"; };
+		5C62F25029917C5F00E1A041 /* SetDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetDetailView.swift; sourceTree = "<group>"; };
 		5C644776298198D1001646DB /* FinishRoutineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishRoutineView.swift; sourceTree = "<group>"; };
 		5C7164FF29777F0C00297DBE /* HistoryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCardView.swift; sourceTree = "<group>"; };
 		5C7165012977823600297DBE /* HistoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetailView.swift; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 				5C8600872963C70E00D8731E /* HistoryView.swift */,
 				5C7165012977823600297DBE /* HistoryDetailView.swift */,
 				5C62F24A298AD72B00E1A041 /* SetsView.swift */,
+				5C62F25029917C5F00E1A041 /* SetDetailView.swift */,
 				5C62F24C298AD7D800E1A041 /* SetCardView.swift */,
 				5C644776298198D1001646DB /* FinishRoutineView.swift */,
 				5C7164FF29777F0C00297DBE /* HistoryCardView.swift */,
@@ -406,6 +409,7 @@
 				5CBCA96E2975FBF1006EC758 /* HistoryKey.swift in Sources */,
 				5CD295A0291B4776002242E3 /* AddRoutineView.swift in Sources */,
 				5C59EC9D294B9425003E6259 /* PersistenceController.swift in Sources */,
+				5C62F25129917C5F00E1A041 /* SetDetailView.swift in Sources */,
 				5C8600852956736B00D8731E /* Workout+CoreDataClass.swift in Sources */,
 				5CD29548291496B0002242E3 /* Lift_TrackApp.swift in Sources */,
 				5CD295962919FB27002242E3 /* WorkoutListItemView.swift in Sources */,

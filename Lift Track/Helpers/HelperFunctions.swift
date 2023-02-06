@@ -12,6 +12,7 @@ extension StartRoutineView  {
     func reset() {
         weight = ""
         reps = ""
+        notes = ""
     }
     func incSetNumAndTotalSet () {
         setNumber += 1
@@ -103,6 +104,7 @@ extension FinishRoutineView {
     func reset() {
         weight = ""
         reps = ""
+        notes = ""
     }
     func incSetNumAndTotalSet () {
         setNumber += 1
