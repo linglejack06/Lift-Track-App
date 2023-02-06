@@ -14,7 +14,7 @@ struct HistoryFilteredList: View {
         List {
             ForEach(entries, id: \.self) { entry in
                 NavigationLink(destination: HistoryDetailView(entry: entry)) {
-                    HistoryCardView(entry: entry)
+                    HistoryCardView(entry: entry, isCentered: false)
                 }
             }
             .onDelete { indexSet in

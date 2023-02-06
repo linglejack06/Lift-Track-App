@@ -13,9 +13,11 @@ struct HistoryDetailView: View {
     var body: some View {
         VStack {
             HStack {
-                HistoryCardView(entry: entry)
+                Spacer()
+                HistoryCardView(entry: entry, isCentered: true)
                 Spacer()
             }
+            .padding()
             Section("Workouts") {
                 SetsView(entry: entry)
             }
