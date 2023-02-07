@@ -20,7 +20,9 @@ struct SetsView: View {
                     .foregroundColor(.primary)
             }
             ForEach(workout.setArray, id: \.self) { set in
-                SetCardView(set: set)
+                NavigationLink(destination: SetDetailView(set: set)) {
+                    SetCardView(set: set)
+                }
             }
         }
     }
