@@ -24,10 +24,13 @@ struct StartRoutineView: View {
     @State var totalSets = 0
     @State var weightUnit: WeightUnitOptions = .pounds
     @State var workoutDuplicate = false
+    @State var workoutVolume = 0
     var body: some View {
         Form {
             if totalSets != usedRoutine.totalSets {
-                Text(usedRoutine.workoutArray[workoutNumber].workoutName ?? "")
+                Text("\(usedRoutine.workoutArray[workoutNumber].workoutName ?? "")")
+                    .font(.system(.title, design: .rounded))
+                Text("Set \(setNumber + 1) of \(usedRoutine.workoutArray[workoutNumber].sets)")
                     .font(.system(.title, design: .rounded))
                 Picker("Select Weight Unit", selection: $weightUnit) {
                     ForEach(WeightUnitOptions.allCases) { unit in
@@ -49,6 +52,7 @@ struct StartRoutineView: View {
                             setsArray.append(set)
                             reset()
                             incSetNumAndTotalSet()
+                            workoutVolume += set.setVolume
                         }
                     } else if workoutNumber != usedRoutine.totalWorkouts - 1 {
                         Button("Next Workout") {
@@ -66,6 +70,7 @@ struct StartRoutineView: View {
                             setsArray = []
                             // reset set Number so each set can be added again
                             setNumber = 0
+                            workoutVolume = 0
                             // add one to workout number so the workout name, etc. are from next workout not just the same workout
                             workoutNumber += 1
                         }
