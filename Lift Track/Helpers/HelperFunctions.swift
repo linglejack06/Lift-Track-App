@@ -39,6 +39,7 @@ extension StartRoutineView  {
     }
     func createSet (weight: Int16, weightUnit: String, reps: Int16, setNumber: Int16, notes: String, context: NSManagedObjectContext) -> Set {
         let set = Set(context: context)
+        set.id = UUID()
         set.weight = weight
         set.weightUnit = weightUnit
         set.reps = reps
@@ -61,6 +62,22 @@ extension StartRoutineView  {
         save(context: context, error: "Error: Failed To Add Workout")
         return workout
     }
+    func loadPreviousHistory(title: String, context: NSManagedObjectContext) -> History {
+        let fetchRequest: NSFetchRequest<History> = History.fetchRequest()
+        fetchRequest.sortDescriptors = [NSSortDescriptor(keyPath: \History.date, ascending: false)]
+        fetchRequest.predicate = NSPredicate(format: "routineTitle == %@", title)
+        do {
+            let prevHistory = try context.fetch(fetchRequest)
+            let first = prevHistory.first!
+            return first
+        } catch let error as NSError {
+            print("Error fetching History: \(error.localizedDescription), \(error.userInfo)")
+        }
+        return History()
+    }
+}
+
+extension PreviousSetView {
     func loadPreviousHistory(title: String, context: NSManagedObjectContext) -> History {
         let fetchRequest: NSFetchRequest<History> = History.fetchRequest()
         fetchRequest.sortDescriptors = [NSSortDescriptor(keyPath: \History.date, ascending: false)]
@@ -139,6 +156,7 @@ extension FinishRoutineView {
     }
     func createSet (weight: Int16, weightUnit: String, reps: Int16, setNumber: Int16, notes: String, context: NSManagedObjectContext) -> Set {
         let set = Set(context: context)
+        set.id = UUID()
         set.weight = weight
         set.weightUnit = weightUnit
         set.reps = reps

@@ -116,6 +116,7 @@ struct StartRoutineView: View {
             }
         }
         // add previous history sets
+        PreviousSetView(routine: usedRoutine, workoutNumber: $workoutNumber)
     }
 }
 
