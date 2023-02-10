@@ -61,6 +61,19 @@ extension StartRoutineView  {
         save(context: context, error: "Error: Failed To Add Workout")
         return workout
     }
+    func loadPreviousHistory(title: String, context: NSManagedObjectContext) -> History {
+        let fetchRequest: NSFetchRequest<History> = History.fetchRequest()
+        fetchRequest.sortDescriptors = [NSSortDescriptor(keyPath: \History.date, ascending: false)]
+        fetchRequest.predicate = NSPredicate(format: "routineTitle == %@", title)
+        do {
+            let prevHistory = try context.fetch(fetchRequest)
+            let first = prevHistory.first!
+            return first
+        } catch let error as NSError {
+            print("Error fetching History: \(error.localizedDescription), \(error.userInfo)")
+        }
+        return History()
+    }
 }
 
 extension ContentView {
